@@ -8,6 +8,9 @@ import greenfoot.*;
  */
 public class Tanque extends Actor
 {
+    public int x;
+    public int y;
+    
     /**
      * Act - do whatever the Tanque wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -21,26 +24,18 @@ public class Tanque extends Actor
     {
       if(Greenfoot.isKeyDown("right"))
       {
-        move(1);
-        setRotation(0);
+        move(3);
       }
       
       if(Greenfoot.isKeyDown("left"))
       {
-        move(1);
-        setRotation(180);
+        move(-3);
       }
-      
-      if(Greenfoot.isKeyDown("down"))
-      {
-        move(1);
-        setRotation(90);
-      }
-      
-      if(Greenfoot.isKeyDown("up"))
-      {
-        move(1);
-        setRotation(270);
-      }
+    }
+    
+    public void regresaCoordenadas()
+    {
+      x=getX();
+      y=getY();
     }
 }
