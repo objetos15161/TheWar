@@ -9,6 +9,8 @@ import greenfoot.*;
 public class WarWorld extends World
 {
     public Tanque tanque;
+      
+    private Counter nivel;
     
     /**
      * Constructor for objects of class WarWorld.
@@ -20,9 +22,13 @@ public class WarWorld extends World
         super(700, 500, 1); 
         Greenfoot.setWorld(new MENU());
         prepare();
-        agregaEnemigo();
     }
-
+    
+    public void act()
+    {
+      agregaEnemigo();  
+    }
+    
     /**
      * Prepare the world for the start of the program. That is: create the initial
      * objects and add them to the world.
@@ -31,6 +37,11 @@ public class WarWorld extends World
     {
         Tanque tanque = new Tanque();
         addObject(tanque, 346, 435);
+
+        nivel = new Counter("Nivel: ");
+        nivel.setValue(1);
+        
+        addObject(nivel, 350, 10);
 
         //Artillero artillero = new Artillero();
         //addObject(artillero, 348, 58);
@@ -41,14 +52,24 @@ public class WarWorld extends World
     
     public void agregaEnemigo()
     {
-     if(Greenfoot.getRandomNumber(400)<300)
+     if(Greenfoot.getRandomNumber(400)<2)
      {
-      addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 58);
+      addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 80);
      }   
     }
     
     public Tanque dimeTanque()
     {
       return tanque;  
+    }
+    
+    public void cambiaNivel()
+    {
+      nivel.setValue(nivel.getValue() + 1);
+      
+      if(nivel.getValue() == 2)
+      {
+       setBackground("campodebatalla.jpg");   
+      }
     }
 }
