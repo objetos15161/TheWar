@@ -9,6 +9,7 @@ import greenfoot.*;
 public class Soldado extends Actor
 {
     int v=1;
+    
     /**
      * Act - do whatever the Soldado wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -18,11 +19,12 @@ public class Soldado extends Actor
        mueve();
     }    
     
+    
     public void mueve()
     {
       int x=getX();
       int y=getY();
-
+      
       setLocation(x+v,y);
       
       if(super.getX()>=699)
