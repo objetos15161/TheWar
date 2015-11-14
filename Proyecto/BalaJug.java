@@ -23,12 +23,12 @@ public class BalaJug extends Municion
     {
      WarWorld mundo = (WarWorld) getWorld();
      
-     if(Greenfoot.isKeyDown("a"))
+     if(Greenfoot.isKeyDown("space"))
      { 
       //Tanque t = mundo.dimeTanque();
       //t.regresaCoordenadas();
      
-      mundo.addObject(new BalaJug(),100, 100); 
+      mundo.agregaBala();
      }
     }
     

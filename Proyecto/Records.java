@@ -1,31 +1,31 @@
 import greenfoot.*;
 
 /**
- * Write a description of class AYUDA here.
+ * Write a description of class Records here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class AYUDA extends World
+public class Records extends World
 {
-   private Regresar_Boton regresar_boton;
-   
+    private Regresar_Boton regresar_boton;
+    
     /**
-     * Constructor for objects of class AYUDA.
+     * Constructor for objects of class Records.
      * 
      */
-    public AYUDA()
+    public Records()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(500, 500, 1); 
+        super(600, 400, 1); 
         
         regresar_boton = new Regresar_Boton();
-        addObject(regresar_boton,72,40);  
+        addObject(regresar_boton,550,370);  
         
         act();
-    }   
-
-    public void act()
+    }
+    
+     public void act()
     {
        if(Greenfoot.getMouseInfo()!=null)
         {    
@@ -35,5 +35,4 @@ public class AYUDA extends World
          }
         }
     }
-    
 }

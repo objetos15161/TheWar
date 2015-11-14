@@ -50,6 +50,11 @@ public class WarWorld extends World
         //addObject(balaJ, 345, 351);
     }
     
+    public void agregaBala()
+    {
+     addObject(new BalaJug(),200, 200);
+    }
+    
     public void agregaEnemigo()
     {
      if(Greenfoot.getRandomNumber(400)<2)

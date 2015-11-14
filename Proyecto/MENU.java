@@ -57,7 +57,7 @@ public class MENU extends World
             }
             else if(Greenfoot.mousePressed(record_boton))
             {
-              Greenfoot.setWorld(new WarWorld());
+              Greenfoot.setWorld(new Records());
             }
             else if(Greenfoot.mousePressed(boton_ayuda))
             {
