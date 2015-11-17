@@ -16,34 +16,41 @@ public class BalaJug extends Municion
      */
     public void act() 
     {
-        mueve();
+       mueve();
+       checa();
     }   
     
     public void mueve()
     {
-     WarWorld mundo = (WarWorld) getWorld();
-     
-     if(Greenfoot.isKeyDown("space"))
-     { 
-      //Tanque t = mundo.dimeTanque();
-      //t.regresaCoordenadas();
-     
-      mundo.agregaBala();
-     }
+       /*WarWorld mundo = (WarWorld)getWorld();
+       Tanque t =mundo.dimeTanque();
+       int x=t.getX(),y=t.getY();
+       int a=x,b=y;
+       setLocation(a,b+1);*/
+       setRotation(270);
+       move(2);
     }
     
     public void checa()
     {
-      WarWorld mundo = (WarWorld) getWorld();
+      World mundo = (WarWorld) getWorld();
       
-      if(this.isTouching(Artillero.class)) 
+      if(isTouching(Artillero.class)) 
       {
-        eliminados++;
+        //eliminados++;
+        mundo.removeObject(this);
         
-        if(eliminados==10)
+        /*if(eliminados==10)
         {
          mundo.cambiaNivel();   
-        }
+        }*/
       }
-    }
+      else
+      {
+       if(getY()== 0)   
+       {
+       mundo.removeObject(this);   
+      }
+    }    
+}
 }

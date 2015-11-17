@@ -5,8 +5,6 @@ comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Tanque\ wants\ to\ do.\ This\ met
 comment1.params=
 comment1.target=void\ mueve()
 comment1.text=public\ void\ Tanque(int\ numVidas)\r\n\ \ \ \ {\r\n\ \ \ \ \ \ //World\ mundo\ \=\ getWorld();\r\n\ \ \ \ \ \ \r\n\ \ \ \ \ \ vidas\ \=\ new\ Counter\ ("Vidas\:\ ");\r\n\ \ \ \ \ \ vidas.setValue(numVidas);\ \ \ \r\n\ \ \ \ \ \ \r\n\ \ \ \ \ \ //mundo.addObject(vidas,\ 100,\ 100);\r\n\ \ \ \ }\r\n\ \ \ \ \r\n\ \ \ \ protected\ void\ addedToWorld(World\ mundo)\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ mundo.addObject(vidas,\ 50,\ 10);\r\n}
-comment2.params=
-comment2.target=void\ borraTanque()
-comment3.params=
-comment3.target=void\ regresaCoordenadas()
-numComments=4
+comment2.params=x\ y
+comment2.target=void\ regresaCoordenadas(int,\ int)
+numComments=3

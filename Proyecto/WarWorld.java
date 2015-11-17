@@ -29,6 +29,7 @@ public class WarWorld extends World
     public void act()
     {
       agregaEnemigo();  
+      agregaBalaJ();
     }
     
     /**
@@ -50,11 +51,6 @@ public class WarWorld extends World
 
         //BalaJugador balaJ = new BalaJugador();
         //addObject(balaJ, 345, 351);
-    }
-    
-    public void agregaBala()
-    {
-     addObject(new BalaJug(),200, 200);
     }
     
     public void agregaEnemigo()
@@ -108,5 +104,15 @@ public class WarWorld extends World
        Greenfoot.stop(); 
       }
       
+    }
+    
+    public void agregaBalaJ()
+    {
+     if(Greenfoot.isKeyDown("a"))
+     {
+       Tanque t = dimeTanque();
+       int x=t.getX(),y=t.getY();
+       addObject(new BalaJug(),x,y);
+     }
     }
 }

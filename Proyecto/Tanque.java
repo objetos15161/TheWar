@@ -50,14 +50,8 @@ public class Tanque extends Actor
       }
     }
     
-    public void borraTanque()
-    {
-     World mundo = getWorld();
-     
-     mundo.removeObject(this);
-    }
     
-    public void regresaCoordenadas()
+    public void regresaCoordenadas(int x,int y)
     {
       x=getX();
       y=getY();
