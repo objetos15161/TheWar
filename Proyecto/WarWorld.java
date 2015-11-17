@@ -9,8 +9,7 @@ import java.util.List;
  */
 public class WarWorld extends World
 {
-    public Tanque tanque;
-      
+    public Tanque tanque= new Tanque();   
     private Counter nivel;
     
     int nEnemigos=0;
@@ -38,7 +37,7 @@ public class WarWorld extends World
      */
     private void prepare()
     {
-        Tanque tanque = new Tanque();
+        //Tanque tanque = new Tanque();
         addObject(tanque, 346, 435);
 
         nivel = new Counter("Nivel: ");
@@ -94,7 +93,7 @@ public class WarWorld extends World
        List listaArtilleros = this.getObjects(Artillero.class); 
        
        this.removeObjects(listaArtilleros);
-       this.removeObject(tanque);
+       removeObject(tanque);
        setBackground("campodebatalla.jpg");   
       }
       
