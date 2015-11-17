@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.List;
 
 /**
  * Write a description of class WarWorld here.
@@ -11,6 +12,8 @@ public class WarWorld extends World
     public Tanque tanque;
       
     private Counter nivel;
+    
+    int nEnemigos=0;
     
     /**
      * Constructor for objects of class WarWorld.
@@ -57,10 +60,19 @@ public class WarWorld extends World
     
     public void agregaEnemigo()
     {
-     if(Greenfoot.getRandomNumber(400)<2)
+     if(nEnemigos < 10)
      {
-      addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 80);
-     }   
+      if(Greenfoot.getRandomNumber(400)<2)
+      {
+       addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 80);
+       nEnemigos++;
+      }
+       
+      if(nEnemigos >=10)
+      {
+       cambiaNivel();   
+      }
+     }
     }
     
     public Tanque dimeTanque()
@@ -72,9 +84,30 @@ public class WarWorld extends World
     {
       nivel.setValue(nivel.getValue() + 1);
       
+      if(nivel.getValue() == 1)
+      {
+       setBackground("descarga4.jpg");   
+      }
+      
       if(nivel.getValue() == 2)
       {
+       List listaArtilleros = this.getObjects(Artillero.class); 
+       
+       this.removeObjects(listaArtilleros);
+       this.removeObject(tanque);
        setBackground("campodebatalla.jpg");   
       }
+      
+      if(nivel.getValue() == 3)
+      {
+       setBackground("images1.jpg");   
+      }
+      
+      if(nivel.getValue() > 3)
+      {
+       nivel.setValue(3);   
+       Greenfoot.stop(); 
+      }
+      
     }
 }
