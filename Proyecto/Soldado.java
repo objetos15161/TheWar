@@ -37,4 +37,5 @@ public class Soldado extends Actor
         v=1;
       }
     }
+    
 }

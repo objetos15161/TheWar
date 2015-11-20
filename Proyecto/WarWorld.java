@@ -9,8 +9,9 @@ import java.util.List;
  */
 public class WarWorld extends World
 {
-    public Tanque tanque= new Tanque();   
+    public Tanque tanque= new Tanque(3);   
     private Counter nivel;
+    private Counter puntos;
     
     int nEnemigos=0;
     
@@ -23,6 +24,9 @@ public class WarWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 500, 1); 
         Greenfoot.setWorld(new MENU());
+        puntos = new Counter("Puntos: ");
+        puntos.setValue(0);
+        addObject(puntos, 650, 10);
         prepare();
     }
     
@@ -32,10 +36,11 @@ public class WarWorld extends World
       agregaBalaJ();
     }
     
-    /**
-     * Prepare the world for the start of the program. That is: create the initial
-     * objects and add them to the world.
-     */
+    public void actualizaPuntos()
+    {
+     puntos.setValue(puntos.getValue() + 2);   
+    }
+    
     private void prepare()
     {
         //Tanque tanque = new Tanque();
@@ -55,20 +60,12 @@ public class WarWorld extends World
     
     public void agregaEnemigo()
     {
-     if(nEnemigos < 10)
-     {
       if(Greenfoot.getRandomNumber(400)<2)
       {
        addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 80);
        nEnemigos++;
       }
-       
-      if(nEnemigos >=10)
-      {
-       cambiaNivel();   
-      }
      }
-    }
     
     public Tanque dimeTanque()
     {
@@ -87,8 +84,10 @@ public class WarWorld extends World
       if(nivel.getValue() == 2)
       {
        List listaArtilleros = this.getObjects(Artillero.class); 
+       List listaBalasJ = this.getObjects(BalaJug.class);
        
        this.removeObjects(listaArtilleros);
+       this.removeObjects(listaBalasJ);
        removeObject(tanque);
        setBackground("campodebatalla.jpg");   
       }
@@ -108,11 +107,11 @@ public class WarWorld extends World
     
     public void agregaBalaJ()
     {
-     if(Greenfoot.isKeyDown("a"))
+     if(Greenfoot.isKeyDown("space"))
      {
        Tanque t = dimeTanque();
        int x=t.getX(),y=t.getY();
-       addObject(new BalaJug(),x,y);
+       addObject(new BalaJug(),x,y-80);
      }
     }
 }

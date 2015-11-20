@@ -8,37 +8,41 @@ import greenfoot.*;
  */
 public class BalaJug extends Municion
 {
+    //private Counter puntos;  
+    
     int eliminados=0;
     
     /**
      * Act - do whatever the BalaJug wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
     public void act() 
     {
        mueve();
        checa();
-    }   
+    } 
+    
+   /* protected void addedToWorld(World mundo)
+    {
+     puntos = new Counter("Puntos: ");
+     mundo.addObject(puntos, 650, 10);
+    } */ 
     
     public void mueve()
     {
-       /*WarWorld mundo = (WarWorld)getWorld();
-       Tanque t =mundo.dimeTanque();
-       int x=t.getX(),y=t.getY();
-       int a=x,b=y;
-       setLocation(a,b+1);*/
        setRotation(270);
        move(2);
     }
     
     public void checa()
     {
-      World mundo = (WarWorld) getWorld();
+      WarWorld mundo = (WarWorld) getWorld();
       
       if(isTouching(Artillero.class)) 
-      {
-        //eliminados++;
-        mundo.removeObject(this);
+      { 
+        //mundo.removeObject(this);
+        mundo.actualizaPuntos();
         
         /*if(eliminados==10)
         {
@@ -50,7 +54,7 @@ public class BalaJug extends Municion
        if(getY()== 0)   
        {
        mundo.removeObject(this);   
-      }
-    }    
-}
+       }
+      }    
+    }
 }

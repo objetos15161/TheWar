@@ -22,20 +22,17 @@ public class Tanque extends Actor
       mueve();
     }    
     
-    /*public void Tanque(int numVidas)
+    public Tanque(int numVidas)
     {
-      //World mundo = getWorld();
-      
       vidas = new Counter ("Vidas: ");
       vidas.setValue(numVidas);   
-      
-      //mundo.addObject(vidas, 100, 100);
+
     }
     
     protected void addedToWorld(World mundo)
     {
         mundo.addObject(vidas, 50, 10);
-    }*/
+    }
     
     public void mueve()
     {
