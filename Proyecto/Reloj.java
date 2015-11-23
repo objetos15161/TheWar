@@ -34,8 +34,8 @@ public class Reloj extends Actor
         {
             valor.add(1);
             timer.mark();
-        }
-        if(valor.getValue()>3)
+            
+            if(valor.getValue()>3)
         {
           if(valor.getValue()%20==0){
 
@@ -50,5 +50,7 @@ public class Reloj extends Actor
              mundo.addBalaEn(); 
           }
         }
+        }
+        
     }    
 }
