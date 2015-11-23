@@ -8,6 +8,8 @@ import greenfoot.*;
  */
 public class BalaEnemy extends Municion
 {
+    
+    
     /**
      * Act - do whatever the BalaEnemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -15,6 +17,7 @@ public class BalaEnemy extends Municion
     public void act() 
     {
        mueve();
+
        Check();
     }    
     public void mueve()
@@ -31,4 +34,7 @@ public class BalaEnemy extends Municion
          mundo.removeObject(this);     
         }
     }
+    
+    
+    
 }

@@ -35,22 +35,28 @@ public class Reloj extends Actor
             valor.add(1);
             timer.mark();
             
+            mundo.agregaBalaJ(); 
+            
+            
             if(valor.getValue()>3)
-        {
-          if(valor.getValue()%20==0){
+            {
+              if(valor.getValue()%60==0)
+               {
 
-             Greenfoot.stop();
-             //setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
+               Greenfoot.stop();
+               //setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
+               }
+            }
+            if(valor.getValue()>6)
+            {
+                if(valor.getValue()%2==0)
+                {
+                    mundo.addBalaEn(); 
+                }
             }
         }
-        if(valor.getValue()>6)
-        {
-          if(valor.getValue()%2==0)
-          {
-             mundo.addBalaEn(); 
-          }
-        }
-        }
         
+
+            
     }    
 }

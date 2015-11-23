@@ -9,6 +9,7 @@ import greenfoot.*;
 public class Tanque extends Actor
 {
     private Counter vidas;  
+    private int vidX=300;
     
     public int x;
     public int y;
@@ -20,6 +21,7 @@ public class Tanque extends Actor
     public void act() 
     {
       mueve();
+      disminuyeVidas();
     }    
     
     public Tanque(int numVidas)
@@ -52,5 +54,34 @@ public class Tanque extends Actor
     {
       x=getX();
       y=getY();
+    }
+    
+    
+    public void disminuyeVidas()
+    {
+        World mundo = getWorld();
+        
+         if(vidX<=300 && vidX>0){  
+          if(isTouching(BalaEnemy.class))
+           {
+            vidX=vidX-100;
+            setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
+           }
+        }//super.isTouching(Lemon.class))
+        if( vidX<=0  )
+        {
+            vidas.setValue( vidas.getValue() - 1);
+            if(vidas.getValue()<=0)
+            {
+               mundo.showText("Game Over.....Perdiste .",350,300);
+                Greenfoot.stop();
+                
+            }
+            else
+            {
+                setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
+            }
+            vidX=300;
+        }
     }
 }

@@ -30,15 +30,15 @@ public class WarWorld extends World
         puntos.setValue(0);
         addObject(puntos, 650, 10);
         prepare();
-        cambiaNivel();  
-         prepare();
+        cambiaNivel();  //
+         prepare();    //
 
     }
     
     public void act()
     {
       agregaEnemigo();  
-      agregaBalaJ();
+      //agregaBalaJ();
     }
     
     public void actualizaPuntos()
@@ -99,6 +99,7 @@ public class WarWorld extends World
        reloj = new Reloj();
        addObject (reloj,250, 10);
        
+       //addObject(tanque, 346, 435);
        addObject (new LanzaCohetes(), 550, 200);
        addObject (new LanzaCohetes(), 150, 200);
        addObject (new Muro(), 550, 225);
