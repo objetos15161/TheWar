@@ -34,6 +34,7 @@ public class Artillero extends Soldado
         {
          mundo.cambiaNivel();   
         }
+        
      }
     }
 }

@@ -12,6 +12,8 @@ public class WarWorld extends World
     public Tanque tanque= new Tanque(3);   
     private Counter nivel;
     private Counter puntos;
+        
+    private Reloj reloj;
     
     int nEnemigos=0;
     
@@ -28,6 +30,9 @@ public class WarWorld extends World
         puntos.setValue(0);
         addObject(puntos, 650, 10);
         prepare();
+        cambiaNivel();  
+         prepare();
+
     }
     
     public void act()
@@ -49,7 +54,7 @@ public class WarWorld extends World
         nivel = new Counter("Nivel: ");
         nivel.setValue(1);
         
-        addObject(nivel, 350, 10);
+        addObject(nivel, 400, 10);
 
         //Artillero artillero = new Artillero();
         //addObject(artillero, 348, 58);
@@ -90,6 +95,20 @@ public class WarWorld extends World
        this.removeObjects(listaBalasJ);
        removeObject(tanque);
        setBackground("campodebatalla.jpg");   
+       
+       reloj = new Reloj();
+       addObject (reloj,250, 10);
+       
+       addObject (new LanzaCohetes(), 550, 200);
+       addObject (new LanzaCohetes(), 150, 200);
+       addObject (new Muro(), 550, 225);
+       addObject (new Muro(), 150, 225);
+       //addObject (new BalaEnemy(), 137, 165);
+       //addObject (new BalaEnemy(), 537, 165);
+       
+       
+       
+    
       }
       
       if(nivel.getValue() == 3)
@@ -113,5 +132,12 @@ public class WarWorld extends World
        int x=t.getX(),y=t.getY();
        addObject(new BalaJug(),x,y-80);
      }
+    }
+    
+    public void addBalaEn()
+    {
+       addObject (new BalaEnemy(), 137, 165);
+       addObject (new BalaEnemy(), 537, 165);
+        
     }
 }

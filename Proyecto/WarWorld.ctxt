@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=WarWorld()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ WarWorld.\r\n\ \r\n
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ WarWorld.\n\ \n
 comment1.params=
 comment1.target=void\ act()
 comment2.params=
@@ -16,4 +16,6 @@ comment6.params=
 comment6.target=void\ cambiaNivel()
 comment7.params=
 comment7.target=void\ agregaBalaJ()
-numComments=8
+comment8.params=
+comment8.target=void\ addBalaEn()
+numComments=9

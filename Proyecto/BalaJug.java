@@ -31,7 +31,7 @@ public class BalaJug extends Municion
     
     public void mueve()
     {
-       setRotation(270);
+       setRotation(270); //270
        move(2);
     }
     
@@ -57,4 +57,6 @@ public class BalaJug extends Municion
        }
       }    
     }
+    
+    
 }
