@@ -1,3 +1,4 @@
+
 import greenfoot.*;
 import java.util.List;
 
@@ -9,13 +10,16 @@ import java.util.List;
  */
 public class WarWorld extends World
 {
-    public Tanque tanque= new Tanque(3);   
+    public Tanque tanque = new Tanque(3);   
+    public Artillero artillero = new Artillero();
+    
     private Counter nivel;
     private Counter puntos;
         
     private Reloj reloj;
     
     int nEnemigos=0;
+    int eliminados=0;
     
     /**
      * Constructor for objects of class WarWorld.
@@ -30,15 +34,13 @@ public class WarWorld extends World
         puntos.setValue(0);
         addObject(puntos, 650, 10);
         prepare();
-        cambiaNivel();  //
-         prepare();    //
-
+        //cambiaNivel();
     }
     
     public void act()
     {
       agregaEnemigo();  
-      //agregaBalaJ();
+      agregaBalaJ();
     }
     
     public void actualizaPuntos()
@@ -48,33 +50,43 @@ public class WarWorld extends World
     
     private void prepare()
     {
-        //Tanque tanque = new Tanque();
         addObject(tanque, 346, 435);
 
         nivel = new Counter("Nivel: ");
         nivel.setValue(1);
         
-        addObject(nivel, 400, 10);
-
-        //Artillero artillero = new Artillero();
-        //addObject(artillero, 348, 58);
-
-        //BalaJugador balaJ = new BalaJugador();
-        //addObject(balaJ, 345, 351);
+        addObject(nivel, 350, 10);
     }
     
     public void agregaEnemigo()
     {
-      if(Greenfoot.getRandomNumber(400)<2)
+      if(nEnemigos <= 15)
       {
-       addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 80);
-       nEnemigos++;
-      }
+         if(Greenfoot.getRandomNumber(400)<2)
+         {
+          addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 80);
+          //agregaBalaE();
+          nEnemigos++;
+         }
+      } 
      }
+     
+     /*public void agregaBalaE()
+     {
+      Artillero a = dimeArtillero();
+      int x= a.getX(),y= a.getY();
+      
+      addObject(new BalaEnem(),x,y);
+     }*/
     
     public Tanque dimeTanque()
     {
       return tanque;  
+    }
+    
+    public Artillero dimeArtillero()
+    {
+      return artillero;  
     }
     
     public void cambiaNivel()
@@ -131,14 +143,24 @@ public class WarWorld extends World
      {
        Tanque t = dimeTanque();
        int x=t.getX(),y=t.getY();
-       addObject(new BalaJug(),x,y-80);
+       addObject(new BalaJug(),x,y-60);
      }
+    }
+    
+    public void aumentaEliminados()
+    {
+      eliminados++;  
+      System.out.println("Eliminados="+eliminados);
+      
+      if(eliminados>=10)
+      {
+       cambiaNivel();   
+      }
     }
     
     public void addBalaEn()
     {
        addObject (new BalaEnemy(), 137, 165);
        addObject (new BalaEnemy(), 537, 165);
-        
     }
 }

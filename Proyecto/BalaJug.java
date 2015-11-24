@@ -41,13 +41,8 @@ public class BalaJug extends Municion
       
       if(isTouching(Artillero.class)) 
       { 
-        //mundo.removeObject(this);
         mundo.actualizaPuntos();
-        
-        /*if(eliminados==10)
-        {
-         mundo.cambiaNivel();   
-        }*/
+        mundo.aumentaEliminados();
       }
       else
       {

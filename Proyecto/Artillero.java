@@ -1,19 +1,12 @@
 import greenfoot.*;
-import java.awt.Font;
 
-/**
- * Write a description of class Artillero here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Artillero extends Soldado
 {
     /**
      * Act - do whatever the Artillero wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    int eliminados=0;
+    //int eliminados=0;
     
     public void act() 
     {
@@ -28,13 +21,13 @@ public class Artillero extends Soldado
      if(isTouching(BalaJug.class))
      {
         mundo.removeObject(this); 
-        eliminados++;
+        /*eliminados++;
         System.out.println("ELIMINADOS="+eliminados);
         if(eliminados>=10)
         {
          mundo.cambiaNivel();   
+
+        }*/
         }
-        
      }
-    }
 }
