@@ -1,11 +1,13 @@
 #BlueJ class context
 comment0.params=
 comment0.target=WarWorld()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ WarWorld.\r\n\ \r\n
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ WarWorld.\n\ \n
 comment1.params=
 comment1.target=void\ act()
 comment10.params=
 comment10.target=void\ addBalaEn()
+comment11.params=
+comment11.target=void\ addLvL2()
 comment2.params=
 comment2.target=void\ actualizaPuntos()
 comment3.params=
@@ -14,7 +16,7 @@ comment4.params=
 comment4.target=void\ agregaEnemigo()
 comment5.params=
 comment5.target=Tanque\ dimeTanque()
-comment5.text=public\ void\ agregaBalaE()\r\n\ \ \ \ \ {\r\n\ \ \ \ \ \ Artillero\ a\ \=\ dimeArtillero();\r\n\ \ \ \ \ \ int\ x\=\ a.getX(),y\=\ a.getY();\r\n\ \ \ \ \ \ \r\n\ \ \ \ \ \ addObject(new\ BalaEnem(),x,y);\r\n}
+comment5.text=public\ void\ agregaBalaE()\n\ \ \ \ \ {\n\ \ \ \ \ \ Artillero\ a\ \=\ dimeArtillero();\n\ \ \ \ \ \ int\ x\=\ a.getX(),y\=\ a.getY();\n\ \ \ \ \ \ \n\ \ \ \ \ \ addObject(new\ BalaEnem(),x,y);\n}
 comment6.params=
 comment6.target=Artillero\ dimeArtillero()
 comment7.params=
@@ -23,4 +25,4 @@ comment8.params=
 comment8.target=void\ agregaBalaJ()
 comment9.params=
 comment9.target=void\ aumentaEliminados()
-numComments=11
+numComments=12

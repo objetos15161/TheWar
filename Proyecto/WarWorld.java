@@ -13,11 +13,12 @@ public class WarWorld extends World
     public Tanque tanque = new Tanque(3);   
     public Artillero artillero = new Artillero();
     
-    private Counter nivel;
+    public Counter nivel;
     private Counter puntos;
-        
-    private Reloj reloj;
+     
+    public Reloj reloj;
     
+   
     int nEnemigos=0;
     int eliminados=0;
     
@@ -34,13 +35,14 @@ public class WarWorld extends World
         puntos.setValue(0);
         addObject(puntos, 650, 10);
         prepare();
-        //cambiaNivel();
+        //cambiaNivel();//
+        
     }
     
     public void act()
     {
       agregaEnemigo();  
-      agregaBalaJ();
+      //agregaBalaJ();
     }
     
     public void actualizaPuntos()
@@ -51,11 +53,13 @@ public class WarWorld extends World
     private void prepare()
     {
         addObject(tanque, 346, 435);
+        reloj = new Reloj();
+       addObject (reloj,250, 10);
 
         nivel = new Counter("Nivel: ");
         nivel.setValue(1);
         
-        addObject(nivel, 350, 10);
+        addObject(nivel, 380, 10);
     }
     
     public void agregaEnemigo()
@@ -93,6 +97,7 @@ public class WarWorld extends World
     {
       nivel.setValue(nivel.getValue() + 1);
       
+      
       if(nivel.getValue() == 1)
       {
        setBackground("descarga4.jpg");   
@@ -106,19 +111,13 @@ public class WarWorld extends World
        this.removeObjects(listaArtilleros);
        this.removeObjects(listaBalasJ);
        removeObject(tanque);
+       
        setBackground("campodebatalla.jpg");   
        
-       reloj = new Reloj();
-       addObject (reloj,250, 10);
+       addLvL2();
        
-       //addObject(tanque, 346, 435);
-       addObject (new LanzaCohetes(), 550, 200);
-       addObject (new LanzaCohetes(), 150, 200);
-       addObject (new Muro(), 550, 225);
-       addObject (new Muro(), 150, 225);
        //addObject (new BalaEnemy(), 137, 165);
        //addObject (new BalaEnemy(), 537, 165);
-       
        
        
     
@@ -163,4 +162,20 @@ public class WarWorld extends World
        addObject (new BalaEnemy(), 137, 165);
        addObject (new BalaEnemy(), 537, 165);
     }
+    
+    public void addLvL2()
+    {
+        reloj = new Reloj();
+       addObject (reloj,220, 10);
+       
+       addObject(tanque, 346, 435);
+       addObject (new LanzaCohetes(), 550, 200);
+       addObject (new LanzaCohetes(), 150, 200);
+       addObject (new Muro(), 550, 225);
+       addObject (new Muro(), 150, 225);
+       
+       
+    }
+    
+    
 }

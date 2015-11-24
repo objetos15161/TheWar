@@ -9,9 +9,12 @@ import greenfoot.*;
 
 public class Reloj extends Actor
 {
-    private SimpleTimer timer;
+    public SimpleTimer timer;
     private Counter valor;
     private BalaEnemy BEN;
+   
+    
+    int n;
     
     public Reloj()
     {
@@ -30,6 +33,7 @@ public class Reloj extends Actor
     public void act() 
     {
         WarWorld mundo = (WarWorld) getWorld();
+        
         if(timer.millisElapsed()>1000)
         {
             valor.add(1);
@@ -37,26 +41,37 @@ public class Reloj extends Actor
             
             mundo.agregaBalaJ(); 
             
-            
-            if(valor.getValue()>3)
+             n=mundo.nivel.getValue();
+            if(n==2)
             {
-              if(valor.getValue()%60==0)
-               {
+             activanivel2();
+            }
 
-               Greenfoot.stop();
-               //setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
-               }
-            }
-            if(valor.getValue()>6)
-            {
-                if(valor.getValue()%2==0)
-                {
-                    mundo.addBalaEn(); 
-                }
-            }
-        }
-        
+           
+        } 
 
             
     }    
+    
+    
+    public void activanivel2()
+    {
+                WarWorld mundo = (WarWorld) getWorld();
+               if(valor.getValue()>3)
+               {
+                  if(valor.getValue()%60==0)
+                  {
+
+                 Greenfoot.stop();
+                 //setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
+                  }
+               }
+               if(valor.getValue()>6)
+                {
+                  if(valor.getValue()%2==0)
+                  {
+                    mundo.addBalaEn(); 
+                  }
+               }
+    }
 }
