@@ -1,4 +1,3 @@
-
 import greenfoot.*;
 import java.util.List;
 
@@ -20,6 +19,7 @@ public class WarWorld extends World
     
    
     int nEnemigos=0;
+    int nEnemigosNv2=0;
     int eliminados=0;
     
     /**
@@ -35,14 +35,13 @@ public class WarWorld extends World
         puntos.setValue(0);
         addObject(puntos, 650, 10);
         prepare();
-        //cambiaNivel();//
+        //cambiaNivel();
         
     }
     
     public void act()
     {
-      agregaEnemigo();  
-      //agregaBalaJ();
+     agregaEnemigo();  
     }
     
     public void actualizaPuntos()
@@ -52,29 +51,44 @@ public class WarWorld extends World
     
     private void prepare()
     {
-        addObject(tanque, 346, 435);
-        reloj = new Reloj();
+       addObject(tanque, 346, 435);
+       reloj = new Reloj();
        addObject (reloj,250, 10);
 
-        nivel = new Counter("Nivel: ");
-        nivel.setValue(1);
-        
-        addObject(nivel, 380, 10);
+       nivel = new Counter("Nivel: ");
+       nivel.setValue(1);
+   
+       addObject(nivel, 440, 10);     
     }
     
     public void agregaEnemigo()
     {
-      if(nEnemigos <= 15)
-      {
-         if(Greenfoot.getRandomNumber(400)<2)
-         {
-          addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 80);
-          //agregaBalaE();
-          nEnemigos++;
-         }
-      } 
-     }
-     
+      if(nivel.getValue() == 1)
+      { 
+        if(nEnemigos <= 15)
+        {  
+          if(Greenfoot.getRandomNumber(400)<2)
+          {
+            addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 80);
+            nEnemigos++;
+          }
+        }
+      }
+       else{
+             if(nivel.getValue() == 2)
+             {
+               if(nEnemigosNv2 <= 10)
+               {    
+                 if(Greenfoot.getRandomNumber(400)<2)
+                 {
+                  addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 210);
+                  nEnemigosNv2++;
+                 }  
+               }
+             }
+            }
+    }
+
      /*public void agregaBalaE()
      {
       Artillero a = dimeArtillero();
@@ -95,8 +109,7 @@ public class WarWorld extends World
     
     public void cambiaNivel()
     {
-      nivel.setValue(nivel.getValue() + 1);
-      
+      nivel.setValue(nivel.getValue() + 1);     
       
       if(nivel.getValue() == 1)
       {
@@ -112,19 +125,26 @@ public class WarWorld extends World
        this.removeObjects(listaBalasJ);
        removeObject(tanque);
        
-       setBackground("campodebatalla.jpg");   
-       
+       setBackground("campodebatalla2.jpg");   
+
        addLvL2();
-       
-       //addObject (new BalaEnemy(), 137, 165);
-       //addObject (new BalaEnemy(), 537, 165);
-       
-       
-    
       }
       
       if(nivel.getValue() == 3)
-      {
+      {   
+       List listaArtilleros = this.getObjects(Artillero.class); 
+       List listaBalasJ = this.getObjects(BalaJug.class);
+       List listaLanzaCohetes = this.getObjects(LanzaCohetes.class);
+       List listaMuros = this.getObjects(Muro.class);
+       List listaBalasEnem = this.getObjects(BalaEnemy.class);
+       
+       this.removeObjects(listaArtilleros);
+       this.removeObjects(listaBalasJ);
+       this.removeObjects(listaLanzaCohetes);
+       this.removeObjects(listaMuros);
+       this.removeObjects(listaBalasEnem);
+       removeObject(tanque);  
+       
        setBackground("images1.jpg");   
       }
       
@@ -151,31 +171,41 @@ public class WarWorld extends World
       eliminados++;  
       System.out.println("Eliminados="+eliminados);
       
-      if(eliminados>=10)
+      if(nivel.getValue() == 1)
       {
-       cambiaNivel();   
+       if(eliminados>=2)
+       { 
+        cambiaNivel();   
+        eliminados=0;
+       } 
+      }
+
+      if(nivel.getValue() == 2)
+      {
+        if(eliminados>=2)
+        { 
+         cambiaNivel();   
+        }  
       }
     }
     
     public void addBalaEn()
     {
-       addObject (new BalaEnemy(), 137, 165);
-       addObject (new BalaEnemy(), 537, 165);
+       addObject (new BalaEnemy(), 137, 55);
+       addObject (new BalaEnemy(), 537, 55);
     }
     
     public void addLvL2()
     {
-        reloj = new Reloj();
-       addObject (reloj,220, 10);
+       /*reloj = new Reloj();
+       addObject (reloj,220, 10);*/
        
        addObject(tanque, 346, 435);
-       addObject (new LanzaCohetes(), 550, 200);
-       addObject (new LanzaCohetes(), 150, 200);
-       addObject (new Muro(), 550, 225);
-       addObject (new Muro(), 150, 225);
+       addObject (new LanzaCohetes(), 550, 90);
+       addObject (new LanzaCohetes(), 150, 90);
+       addObject (new Muro(), 550, 115);
+       addObject (new Muro(), 150, 115);
        
        
-    }
-    
-    
+    }   
 }

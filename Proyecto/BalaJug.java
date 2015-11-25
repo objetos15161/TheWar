@@ -1,3 +1,4 @@
+
 import greenfoot.*;
 
 /**
@@ -31,7 +32,7 @@ public class BalaJug extends Municion
     
     public void mueve()
     {
-       setRotation(270); //270
+       setRotation(270); 
        move(2);
     }
     

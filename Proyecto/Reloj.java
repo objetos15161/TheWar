@@ -62,8 +62,8 @@ public class Reloj extends Actor
                   if(valor.getValue()%60==0)
                   {
 
-                 Greenfoot.stop();
-                 //setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
+                  //Greenfoot.stop();
+                  //setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
                   }
                }
                if(valor.getValue()>6)
