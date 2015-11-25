@@ -12,6 +12,8 @@ public class BalaJug extends Municion
     //private Counter puntos;  
     
     int eliminados=0;
+    int a;
+    Muro M;
     
     /**
      * Act - do whatever the BalaJug wants to do. This method is called whenever
@@ -22,6 +24,7 @@ public class BalaJug extends Municion
     {
        mueve();
        checa();
+
     } 
     
    /* protected void addedToWorld(World mundo)
@@ -40,8 +43,10 @@ public class BalaJug extends Municion
     {
       WarWorld mundo = (WarWorld) getWorld();
       
+      
       if(isTouching(Artillero.class)) 
       { 
+        
         mundo.actualizaPuntos();
         mundo.aumentaEliminados();
       }
@@ -49,10 +54,29 @@ public class BalaJug extends Municion
       {
        if(getY()== 0)   
        {
+           
        mundo.removeObject(this);   
        }
       }    
+      
+        
+    
+      
+    }
+    public Muro dimeMuro()
+    {
+      return M ;  
     }
     
-    
+    /*public void checkMuro()
+    {
+        WarWorld mundo = (WarWorld) getWorld();
+        M=dimeMuro();
+        a=M.ContM;
+        if(a>0 && a<=2)
+        {
+         mundo.removeObject(this);    
+        }
+    }
+    */
 }

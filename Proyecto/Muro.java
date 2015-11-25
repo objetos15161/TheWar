@@ -8,12 +8,39 @@ import greenfoot.*;
  */
 public class Muro extends Actor
 {
+    int L;
+    int ContM=0;
+    int Mval;
+    
     /**
      * Act - do whatever the Muro wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        // Add your action code here.
+      checa();
     }    
+    public void checa()
+    {
+      WarWorld mundo = (WarWorld) getWorld(); 
+        
+      L=mundo.nivel.getValue();
+      if(L==2)
+      {
+          if(isTouching(BalaJug.class))
+         {  
+             
+           ContM++;
+           mundo.removeObject(this);   
+         }
+      }
+      
+        
+    }
+    
+    /*public void regresaVal(int )
+    {
+       Mval=ContM; 
+    }
+    */
 }

@@ -21,7 +21,8 @@ public class Artillero extends Soldado
      
      if(isTouching(BalaJug.class))
      {
-        mundo.removeObject(this); 
+        removeTouching(BalaJug.class);
+         mundo.removeObject(this); 
         /*eliminados++;
         System.out.println("ELIMINADOS="+eliminados);
         if(eliminados>=10)

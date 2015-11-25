@@ -21,6 +21,7 @@ public class WarWorld extends World
     int nEnemigos=0;
     int nEnemigosNv2=0;
     int eliminados=0;
+   
     
     /**
      * Constructor for objects of class WarWorld.
@@ -127,7 +128,7 @@ public class WarWorld extends World
        
        setBackground("campodebatalla2.jpg");   
 
-       addLvL2();
+       addImaLvL2();
       }
       
       if(nivel.getValue() == 3)
@@ -145,7 +146,10 @@ public class WarWorld extends World
        this.removeObjects(listaBalasEnem);
        removeObject(tanque);  
        
-       setBackground("images1.jpg");   
+       addImaLvL3();
+       
+       
+       setBackground("Ima(1).jpg");   
       }
       
       if(nivel.getValue() > 3)
@@ -162,6 +166,9 @@ public class WarWorld extends World
      {
        Tanque t = dimeTanque();
        int x=t.getX(),y=t.getY();
+       
+       
+       
        addObject(new BalaJug(),x,y-60);
      }
     }
@@ -187,15 +194,18 @@ public class WarWorld extends World
          cambiaNivel();   
         }  
       }
+      
+      
+      
     }
     
-    public void addBalaEn()
+    public void addBalaEnL2()
     {
        addObject (new BalaEnemy(), 137, 55);
        addObject (new BalaEnemy(), 537, 55);
     }
     
-    public void addLvL2()
+    public void addImaLvL2()
     {
        /*reloj = new Reloj();
        addObject (reloj,220, 10);*/
@@ -208,4 +218,34 @@ public class WarWorld extends World
        
        
     }   
+    
+    public void  addImaLvL3()
+    {
+       addObject(tanque, 346, 435);
+       addObject (new Torre(), 145, 87);
+       addObject (new Torre(), 360, 87);
+       addObject (new Torre(), 565, 87);
+       addObject (new LanzaCohetes(), 240, 170);
+       addObject (new LanzaCohetes(), 488, 170);
+       addObject (new Muro(), 230, 199);
+       addObject (new Muro(), 480, 199);
+
+    }
+    
+    
+    public void addBalaEnTor()
+     {
+       addObject (new BalaEnemy(), 122, 55);
+       addObject (new BalaEnemy(), 168, 55);
+       addObject (new BalaEnemy(), 360, 55);
+       addObject (new BalaEnemy(), 545, 55);
+       addObject (new BalaEnemy(), 588, 55);
+     }
+    
+     public void addBalaEnL3()
+    {
+       addObject (new BalaEnemy(), 225, 140);
+       addObject (new BalaEnemy(), 475, 140);
+    }
+     
 }

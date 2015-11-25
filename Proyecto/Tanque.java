@@ -64,10 +64,13 @@ public class Tanque extends Actor
          if(vidX<=300 && vidX>0){  
           if(isTouching(BalaEnemy.class))
            {
+            removeTouching(BalaEnemy.class);
             vidX=vidX-100;
             setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
+
            }
         }//super.isTouching(Lemon.class))
+         
         if( vidX<=0  )
         {
             vidas.setValue( vidas.getValue() - 1);

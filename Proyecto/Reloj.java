@@ -44,9 +44,13 @@ public class Reloj extends Actor
              n=mundo.nivel.getValue();
             if(n==2)
             {
-             activanivel2();
+             activaBalE2();
             }
-
+             if(n==3)
+            {
+             activanivel3();
+             
+            }
            
         } 
 
@@ -54,7 +58,7 @@ public class Reloj extends Actor
     }    
     
     
-    public void activanivel2()
+    public void activaBalE2()
     {
                 WarWorld mundo = (WarWorld) getWorld();
                if(valor.getValue()>3)
@@ -68,9 +72,35 @@ public class Reloj extends Actor
                }
                if(valor.getValue()>6)
                 {
-                  if(valor.getValue()%2==0)
+                  if(valor.getValue()%6==0 )
                   {
-                    mundo.addBalaEn(); 
+                    mundo.addBalaEnL2(); 
+                  }
+               }
+    }
+    
+    
+    public void activanivel3()
+    {
+                WarWorld mundo = (WarWorld) getWorld();
+               if(valor.getValue()>3)
+               {
+                  if(valor.getValue()%60==0)
+                  {
+
+                  //Greenfoot.stop();
+                  //setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
+                  }
+               }
+               if(valor.getValue()>6)
+                {
+                  if(valor.getValue()%3==0 )
+                  {
+                    mundo.addBalaEnTor(); 
+                  }
+                  if(valor.getValue()%5==0 )
+                  {
+                    mundo.addBalaEnL3(); 
                   }
                }
     }
