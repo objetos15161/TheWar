@@ -21,7 +21,6 @@ public class WarWorld extends World
     int nEnemigos=0;
     int nEnemigosNv2=0;
     int eliminados=0;
-   
     
     /**
      * Constructor for objects of class WarWorld.
@@ -166,9 +165,7 @@ public class WarWorld extends World
      {
        Tanque t = dimeTanque();
        int x=t.getX(),y=t.getY();
-       
-       
-       
+
        addObject(new BalaJug(),x,y-60);
      }
     }
@@ -176,11 +173,11 @@ public class WarWorld extends World
     public void aumentaEliminados()
     {
       eliminados++;  
-      System.out.println("Eliminados="+eliminados);
+      //System.out.println("Eliminados="+eliminados);
       
       if(nivel.getValue() == 1)
       {
-       if(eliminados>=2)
+       if(eliminados>=5)
        { 
         cambiaNivel();   
         eliminados=0;
@@ -189,20 +186,17 @@ public class WarWorld extends World
 
       if(nivel.getValue() == 2)
       {
-        if(eliminados>=2)
+        if(eliminados>=5)
         { 
          cambiaNivel();   
         }  
-      }
-      
-      
-      
+      }  
     }
     
     public void addBalaEnL2()
     {
        addObject (new BalaEnemy(), 137, 55);
-       addObject (new BalaEnemy(), 537, 55);
+       addObject (new BalaEnemy(), 537, 75);
     }
     
     public void addImaLvL2()
@@ -245,7 +239,7 @@ public class WarWorld extends World
      public void addBalaEnL3()
     {
        addObject (new BalaEnemy(), 225, 140);
-       addObject (new BalaEnemy(), 475, 140);
+       addObject (new BalaEnemy(), 475, 180);
     }
      
 }

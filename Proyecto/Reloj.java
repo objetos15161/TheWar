@@ -13,14 +13,18 @@ public class Reloj extends Actor
     private Counter valor;
     private BalaEnemy BEN;
    
-    
+    private Message message = null;
+ 
     int n;
+    //int i=0;
     
     public Reloj()
     {
         valor = new Counter("Tiempo: ");
         timer = new SimpleTimer();
+        message = new Message("¡¡Game Over... Perdiste!!");
     }    
+    
     protected void addedToWorld(World mundo)
     {
         mundo.addObject(valor, 250, 10);
@@ -34,14 +38,16 @@ public class Reloj extends Actor
     {
         WarWorld mundo = (WarWorld) getWorld();
         
-        if(timer.millisElapsed()>1000)
+        if(timer.millisElapsed()>900)
         {
             valor.add(1);
             timer.mark();
             
             mundo.agregaBalaJ(); 
             
-             n=mundo.nivel.getValue();
+            reiniciaReloj(); 
+            
+             /*n=mundo.nivel.getValue();
             if(n==2)
             {
              activaBalE2();
@@ -50,18 +56,47 @@ public class Reloj extends Actor
             {
              activanivel3();
              
-            }
-           
-        } 
-
-            
+            }*/     
+        }           
     }    
     
+     public void reiniciaReloj()
+    {
+      WarWorld mundo = (WarWorld) getWorld();  
+      
+      n=mundo.nivel.getValue();
+      
+      if(n==1)
+      {
+        terminaJuego();  
+      }
+      
+      if(n==2)
+      {    
+       //if(i==0)
+       //{
+        activaBalE2();
+        //valor.setValue(0);
+        //i=1;
+        //}
+        //terminaJuego();  
+      }
+      
+      if(n==3)
+      {
+       //if(i==1)
+       //{
+        activanivel3();   
+        //valor.setValue(0);  
+        //i=2;
+       }
+        //terminaJuego();  
+      }
     
     public void activaBalE2()
     {
                 WarWorld mundo = (WarWorld) getWorld();
-               if(valor.getValue()>3)
+               /*if(valor.getValue()>3)
                {
                   if(valor.getValue()%60==0)
                   {
@@ -69,7 +104,8 @@ public class Reloj extends Actor
                   //Greenfoot.stop();
                   //setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
                   }
-               }
+               }*/
+               
                if(valor.getValue()>6)
                 {
                   if(valor.getValue()%6==0 )
@@ -92,6 +128,7 @@ public class Reloj extends Actor
                   //setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
                   }
                }
+               
                if(valor.getValue()>6)
                 {
                   if(valor.getValue()%3==0 )
@@ -104,4 +141,16 @@ public class Reloj extends Actor
                   }
                }
     }
+      
+    public void terminaJuego()
+    {
+     World mundo = getWorld();
+      
+     if(valor.getValue() == 59)
+     {
+      mundo.addObject(message,250,100);
+      Greenfoot.stop();   
+     }
+    }
+    
 }

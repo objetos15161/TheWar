@@ -11,6 +11,8 @@ public class Tanque extends Actor
     private Counter vidas;  
     private int vidX=300;
     
+    private Message message = null;
+    
     public int x;
     public int y;
     
@@ -28,6 +30,7 @@ public class Tanque extends Actor
     {
       vidas = new Counter ("Vidas: ");
       vidas.setValue(numVidas);   
+      message = new Message("¡¡Game Over... Perdiste!!");
 
     }
     
@@ -48,20 +51,19 @@ public class Tanque extends Actor
         move(-3);
       }
     }
-    
-    
+      
     public void regresaCoordenadas(int x,int y)
     {
       x=getX();
       y=getY();
     }
-    
-    
+      
     public void disminuyeVidas()
     {
         World mundo = getWorld();
         
-         if(vidX<=300 && vidX>0){  
+         if(vidX<=300 && vidX>0)
+         {  
           if(isTouching(BalaEnemy.class))
            {
             removeTouching(BalaEnemy.class);
@@ -69,15 +71,15 @@ public class Tanque extends Actor
             setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
 
            }
-        }//super.isTouching(Lemon.class))
+         }//super.isTouching(Lemon.class))
          
         if( vidX<=0  )
         {
             vidas.setValue( vidas.getValue() - 1);
             if(vidas.getValue()<=0)
             {
-               mundo.showText("Game Over.....Perdiste .",350,300);
-                Greenfoot.stop();
+               mundo.addObject(message,250,100);
+               Greenfoot.stop();
                 
             }
             else
