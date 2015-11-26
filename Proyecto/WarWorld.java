@@ -159,6 +159,18 @@ public class WarWorld extends World
       
     }
     
+    public void agregaBalaArtillero()
+    {
+      List listaArtilleros = this.getObjects(Artillero.class); 
+      
+      Artillero a = dimeArtillero();  
+      
+      //listaArtilleros = a.getX();
+      
+      //addObject(new BalaEnemy(),,220);
+      
+    }
+    
     public void agregaBalaJ()
     {
      if(Greenfoot.isKeyDown("space"))
@@ -177,7 +189,7 @@ public class WarWorld extends World
       
       if(nivel.getValue() == 1)
       {
-       if(eliminados>=5)
+       if(eliminados>=2)
        { 
         cambiaNivel();   
         eliminados=0;
@@ -186,7 +198,7 @@ public class WarWorld extends World
 
       if(nivel.getValue() == 2)
       {
-        if(eliminados>=5)
+        if(eliminados>=2)
         { 
          cambiaNivel();   
         }  

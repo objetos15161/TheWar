@@ -25,17 +25,12 @@ public class Muro extends Actor
       WarWorld mundo = (WarWorld) getWorld(); 
         
       L=mundo.nivel.getValue();
-      if(L==2)
-      {
           if(isTouching(BalaJug.class))
          {  
              
            ContM++;
            mundo.removeObject(this);   
-         }
-      }
-      
-        
+         }     
     }
     
     /*public void regresaVal(int )

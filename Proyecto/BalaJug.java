@@ -58,11 +58,8 @@ public class BalaJug extends Municion
        mundo.removeObject(this);   
        }
       }    
-      
-        
-    
-      
     }
+    
     public Muro dimeMuro()
     {
       return M ;  
