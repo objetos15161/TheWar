@@ -9,12 +9,9 @@ import greenfoot.*;
 public class Tanque extends Actor
 {
     private Counter vidas;  
-    private int vidX=300;
+    private int vida=300;
     
     private Message message = null;
-    
-    public int x;
-    public int y;
     
     /**
      * Act - do whatever the Tanque wants to do. This method is called whenever
@@ -52,41 +49,35 @@ public class Tanque extends Actor
       }
     }
       
-    public void regresaCoordenadas(int x,int y)
-    {
-      x=getX();
-      y=getY();
-    }
-      
     public void disminuyeVidas()
     {
         World mundo = getWorld();
         
-         if(vidX<=300 && vidX>0)
+         if(vida<=300 && vida>0)
          {  
           if(isTouching(BalaEnemy.class))
            {
             removeTouching(BalaEnemy.class);
-            vidX=vidX-100;
+            vida=vida-100;
             setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
 
            }
-         }//super.isTouching(Lemon.class))
+         }
          
-        if( vidX<=0  )
+        if( vida<=0  )
         {
-            vidas.setValue( vidas.getValue() - 1);
-            if(vidas.getValue()<=0)
-            {
-               mundo.addObject(message,250,100);
-               Greenfoot.stop();
-                
-            }
-            else
-            {
-                setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
-            }
-            vidX=300;
+          vidas.setValue( vidas.getValue() - 1);
+          
+          if(vidas.getValue()<=0)
+          {
+           mundo.addObject(message,250,100);
+           Greenfoot.stop();
+          }
+           else
+           {
+            setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
+           }
+          vida=300;
         }
     }
 }

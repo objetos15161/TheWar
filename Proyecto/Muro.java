@@ -8,8 +8,9 @@ import greenfoot.*;
  */
 public class Muro extends Actor
 {
+     private int vida=200;
     int L;
-    int ContM=0;
+    //int ContM=0;
     int Mval;
     
     /**
@@ -19,18 +20,33 @@ public class Muro extends Actor
     public void act() 
     {
       checa();
-    }    
+    }   
+    
     public void checa()
     {
       WarWorld mundo = (WarWorld) getWorld(); 
         
       L=mundo.nivel.getValue();
-          if(isTouching(BalaJug.class))
-         {  
-             
-           ContM++;
+      
+         if(vida<=200 && vida>0)
+         { 
+           if(isTouching(BalaJug.class))
+           {
+            removeTouching(BalaJug.class);
+            vida=vida-100; 
+           }
+         }
+         
+        if( vida<=0  )
+        {
+         mundo.removeObject(this);
+        }
+
+        /* if(isTouching(BalaJug.class))
+         {     
+           //ContM++;
            mundo.removeObject(this);   
-         }     
+         }  */   
     }
     
     /*public void regresaVal(int )

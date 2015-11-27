@@ -1,4 +1,5 @@
 import greenfoot.*;
+import java.util.List;
 
 /**
  * Write a description of class Reloj here.
@@ -75,7 +76,8 @@ public class Reloj extends Actor
       {    
        //if(i==0)
        //{
-        activaBalE2();
+       
+         activaBalE2();
         //valor.setValue(0);
         //i=1;
         //}
@@ -95,7 +97,7 @@ public class Reloj extends Actor
     
     public void activaBalE2()
     {
-                WarWorld mundo = (WarWorld) getWorld();
+               WarWorld mundo = (WarWorld) getWorld();
                /*if(valor.getValue()>3)
                {
                   if(valor.getValue()%60==0)
@@ -106,19 +108,30 @@ public class Reloj extends Actor
                   }
                }*/
                
+               List listaLanzaCohetes = mundo.getObjects(LanzaCohetes.class);
+               
                if(valor.getValue()>6)
                 {
                   if(valor.getValue()%6==0 )
                   {
-                    mundo.addBalaEnL2(); 
+                    if(listaLanzaCohetes.size()>0)
+                    {
+                     mundo.addBalaEnL2();
+                    }
                   }
-               }
+                }
     }
     
     
     public void activanivel3()
     {
                 WarWorld mundo = (WarWorld) getWorld();
+                
+                List listaTorres = mundo.getObjects(Torre.class);
+                List listaLanzaCohetes = mundo.getObjects(LanzaCohetes.class);
+                
+               mundo.ganaste();
+                
                if(valor.getValue()>3)
                {
                   if(valor.getValue()%60==0)
@@ -133,11 +146,17 @@ public class Reloj extends Actor
                 {
                   if(valor.getValue()%3==0 )
                   {
-                    mundo.addBalaEnTor(); 
+                    if(listaTorres.size()>0)
+                    {
+                     mundo.addBalaEnTor(); 
+                    }
                   }
                   if(valor.getValue()%5==0 )
                   {
-                    mundo.addBalaEnL3(); 
+                    if(listaLanzaCohetes.size()>0)
+                    {  
+                     mundo.addBalaEnL3(); 
+                    }
                   }
                }
     }

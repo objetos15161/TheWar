@@ -33,12 +33,6 @@ public class BalaEnemy extends Municion
         {
          mundo.removeObject(this);     
         }
-        
-      
-      
-    }
-    
-    
-    
-    
+
+    }  
 }

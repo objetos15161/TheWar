@@ -12,8 +12,30 @@ public class LanzaCohetes extends Soldado
      * Act - do whatever the LanzaCohetes wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    public int vida=200;
+    
     public void act() 
     {
-        // Add your action code here.
-    }    
+      disminuyeVida();
+    }
+    
+    public void disminuyeVida()
+    {
+        World mundo = getWorld();
+        
+         if(vida<=200 && vida>0)
+         {  
+           if(isTouching(BalaJug.class))
+           {
+            removeTouching(BalaJug.class);
+            vida=vida-100;
+           }
+         }
+         
+        if( vida<=0  )
+        {
+         mundo.removeObject(this);
+        }
+    }
 }

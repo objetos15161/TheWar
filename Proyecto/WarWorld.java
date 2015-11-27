@@ -1,3 +1,4 @@
+
 import greenfoot.*;
 import java.util.List;
 
@@ -9,15 +10,19 @@ import java.util.List;
  */
 public class WarWorld extends World
 {
-    public Tanque tanque = new Tanque(3);   
-    public Artillero artillero = new Artillero();
+    public Tanque tanque = new Tanque(3);  
+    public Artillero artillero = new Artillero();   
+    public LanzaCohetes lanzacohetes1 = new LanzaCohetes();
+    public LanzaCohetes lanzacohetes2 = new LanzaCohetes();
+    public Torre torre1 = new Torre();
+    public Torre torre2 = new Torre();
+    public Torre torre3 = new Torre();
     
     public Counter nivel;
     private Counter puntos;
      
     public Reloj reloj;
-    
-   
+
     int nEnemigos=0;
     int nEnemigosNv2=0;
     int eliminados=0;
@@ -127,7 +132,7 @@ public class WarWorld extends World
        
        setBackground("campodebatalla2.jpg");   
 
-       addImaLvL2();
+       addImaLv2();
       }
       
       if(nivel.getValue() == 3)
@@ -205,53 +210,91 @@ public class WarWorld extends World
       }  
     }
     
-    public void addBalaEnL2()
+    public void addImaLv2()
     {
-       addObject (new BalaEnemy(), 137, 55);
-       addObject (new BalaEnemy(), 537, 75);
-    }
-    
-    public void addImaLvL2()
-    {
-       /*reloj = new Reloj();
-       addObject (reloj,220, 10);*/
-       
-       addObject(tanque, 346, 435);
-       addObject (new LanzaCohetes(), 550, 90);
-       addObject (new LanzaCohetes(), 150, 90);
-       addObject (new Muro(), 550, 115);
-       addObject (new Muro(), 150, 115);
-       
-       
-    }   
-    
-    public void  addImaLvL3()
-    {
-       addObject(tanque, 346, 435);
-       addObject (new Torre(), 145, 87);
-       addObject (new Torre(), 360, 87);
-       addObject (new Torre(), 565, 87);
-       addObject (new LanzaCohetes(), 240, 170);
-       addObject (new LanzaCohetes(), 488, 170);
-       addObject (new Muro(), 230, 199);
-       addObject (new Muro(), 480, 199);
+     addObject(tanque, 346, 435);
+     
+     addObject (lanzacohetes1, 550, 90);
+     addObject (new Muro(), 550, 115);
+     
+     addObject (lanzacohetes2, 150, 90);
+     addObject (new Muro(), 150, 115);  
 
     }
     
+    public void addBalaEnL2()
+    {
+     if(lanzacohetes1.vida>0)
+     {
+      addObject (new BalaEnemy(), 537, 55);   
+     } 
+     
+     if(lanzacohetes2.vida>0)
+     {
+      addObject (new BalaEnemy(), 137, 55);   
+     } 
+    }
+    
+    public void addImaLvL3()
+    {
+      lanzacohetes1 = new LanzaCohetes();
+      lanzacohetes2 = new LanzaCohetes();
+      
+      addObject(tanque, 346, 435);
+      
+      addObject (torre1, 145, 87);
+      addObject (torre2, 355, 87);
+      addObject (torre3, 565, 87);
+
+      addObject (lanzacohetes1, 230, 170);
+      addObject (lanzacohetes2, 480, 170);
+       
+      addObject (new Muro(), 230, 199);
+      addObject (new Muro(), 480, 199);
+     
+    }
     
     public void addBalaEnTor()
-     {
+    {
+      if(torre1.vida>0)
+      {  
        addObject (new BalaEnemy(), 122, 55);
        addObject (new BalaEnemy(), 168, 55);
+      }
+      
+      if(torre2.vida>0)
+      {  
        addObject (new BalaEnemy(), 360, 55);
+      }
+      
+      if(torre3.vida>0)
+      {  
        addObject (new BalaEnemy(), 545, 55);
        addObject (new BalaEnemy(), 588, 55);
-     }
+      }
+    }
     
      public void addBalaEnL3()
     {
+      if(lanzacohetes1.vida>0)
+      { 
        addObject (new BalaEnemy(), 225, 140);
-       addObject (new BalaEnemy(), 475, 180);
+      }
+      
+      if(lanzacohetes2.vida>0)
+      { 
+       addObject (new BalaEnemy(), 475, 140);
+      }
     }
-     
+    
+    public void ganaste()
+    {
+     if(lanzacohetes1.vida<=0 && lanzacohetes2.vida<=0)   
+     {
+      if(torre1.vida<=0 && torre2.vida<=0 && torre3.vida<=0)   
+      {
+       Greenfoot.setWorld(new Ganaste());   
+      }
+     }
+    }
 }
