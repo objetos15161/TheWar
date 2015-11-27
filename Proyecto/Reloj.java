@@ -10,8 +10,8 @@ import java.util.List;
 
 public class Reloj extends Actor
 {
-    public SimpleTimer timer;
-    private Counter valor;
+    protected SimpleTimer timer;
+    protected Counter valor;
     private BalaEnemy BEN;
    
     private Message message = null;
@@ -38,7 +38,7 @@ public class Reloj extends Actor
     public void act() 
     {
         WarWorld mundo = (WarWorld) getWorld();
-        
+
         if(timer.millisElapsed()>900)
         {
             valor.add(1);
@@ -116,7 +116,9 @@ public class Reloj extends Actor
                   {
                     if(listaLanzaCohetes.size()>0)
                     {
-                     mundo.addBalaEnL2();
+
+                        mundo.addBalaEnL2();
+                     
                     }
                   }
                 }
@@ -148,14 +150,16 @@ public class Reloj extends Actor
                   {
                     if(listaTorres.size()>0)
                     {
-                     mundo.addBalaEnTor(); 
+                        
+                        mundo.addBalaEnTor(); 
                     }
                   }
                   if(valor.getValue()%5==0 )
                   {
                     if(listaLanzaCohetes.size()>0)
                     {  
-                     mundo.addBalaEnL3(); 
+                       
+                        mundo.addBalaEnL3(); 
                     }
                   }
                }
@@ -168,7 +172,8 @@ public class Reloj extends Actor
      if(valor.getValue() == 59)
      {
       mundo.addObject(message,250,100);
-      Greenfoot.stop();   
+      Greenfoot.delay(300);
+      Greenfoot.setWorld(new MENU());   
      }
     }
     

@@ -1,4 +1,5 @@
 import greenfoot.*;
+import greenfoot.GreenfootSound.*;
 
 /**
  * Write a description of class MENU here.
@@ -13,7 +14,7 @@ public class MENU extends World
     private Record_Boton record_boton;
     private Boton_Ayuda boton_ayuda;
    
-    
+
     
     /**
      * Constructor for objects of class MENU.
@@ -26,6 +27,9 @@ public class MENU extends World
 
         crearBotones();
         act();
+
+   
+      
     }
     public void crearBotones()
     {
@@ -44,12 +48,16 @@ public class MENU extends World
     
     public void act()
     {
+  
+        
         if(Greenfoot.getMouseInfo()!=null)
         {
           
             if(Greenfoot.mousePressed(boton_jugar))
             {
-              Greenfoot.setWorld(new WarWorld());
+                   
+                Greenfoot.setWorld(new WarWorld());
+              
             }
             else if(Greenfoot.mousePressed(salir_boton))
             {

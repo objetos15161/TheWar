@@ -11,6 +11,10 @@ public class Tanque extends Actor
     private Counter vidas;  
     private int vida=300;
     
+   
+   private int Esc=0;
+   private int Dan=0;
+    
     private Message message = null;
     
     /**
@@ -21,6 +25,7 @@ public class Tanque extends Actor
     {
       mueve();
       disminuyeVidas();
+      veifBoni();
     }    
     
     public Tanque(int numVidas)
@@ -53,7 +58,7 @@ public class Tanque extends Actor
     {
         World mundo = getWorld();
         
-         if(vida<=300 && vida>0)
+         if(vida<=300 && vida>0 && Esc==0)
          {  
           if(isTouching(BalaEnemy.class))
            {
@@ -71,7 +76,9 @@ public class Tanque extends Actor
           if(vidas.getValue()<=0)
           {
            mundo.addObject(message,250,100);
-           Greenfoot.stop();
+           Greenfoot.delay(200);
+           Greenfoot.setWorld(new MENU());   
+           //Greenfoot.stop();
           }
            else
            {
@@ -79,5 +86,44 @@ public class Tanque extends Actor
            }
           vida=300;
         }
+    }
+    
+    public void veifBoni()
+    {      
+        World mundo = getWorld();
+      
+        if(isTouching(Vida.class))
+        {
+            
+          removeTouching(Vida.class); 
+          vidas.setValue(vidas.getValue() + 1);     
+      
+        }
+        else
+        {
+            if(isTouching(Escudo.class))
+            {
+              removeTouching(Escudo.class); 
+               
+            } 
+             
+                
+             /* System.out.println("TIME="+REL.valor.getValue());
+               REL.valor.setValue(0); 
+                Esc=1;
+              if( REL.valor.getValue() ==10)
+              {
+                  Esc=0;
+               }*/
+            else
+            {
+                if(isTouching(Daño.class))
+                {
+                    removeTouching(Daño.class);   
+                    Dan=1;
+                }    
+            }
+        }
+        
     }
 }

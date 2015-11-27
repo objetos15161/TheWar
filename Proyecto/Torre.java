@@ -14,7 +14,8 @@ public class Torre extends Soldado
      */
     
     public int vida=300;
-    
+
+      
     public void act() 
     {
      disminuyeVida();
@@ -38,4 +39,6 @@ public class Torre extends Soldado
       mundo.removeObject(this);
      }
     }
+    
+ 
 }

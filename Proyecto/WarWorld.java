@@ -16,17 +16,20 @@ public class WarWorld extends World
     public LanzaCohetes lanzacohetes2 = new LanzaCohetes();
     public Torre torre1 = new Torre();
     public Torre torre2 = new Torre();
-    public Torre torre3 = new Torre();
+    private Torre torre3 = new Torre();
+    
     
     public Counter nivel;
     private Counter puntos;
-     
+    
+    private Vida VID=new Vida();
     public Reloj reloj;
 
     int nEnemigos=0;
     int nEnemigosNv2=0;
     int eliminados=0;
-    
+    int B=0; 
+   
     /**
      * Constructor for objects of class WarWorld.
      * 
@@ -36,6 +39,9 @@ public class WarWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 500, 1); 
         Greenfoot.setWorld(new MENU());
+        //Greenfoot.playSound( "MDrums.mp3");
+
+        
         puntos = new Counter("Puntos: ");
         puntos.setValue(0);
         addObject(puntos, 650, 10);
@@ -61,8 +67,8 @@ public class WarWorld extends World
        addObject (reloj,250, 10);
 
        nivel = new Counter("Nivel: ");
-       nivel.setValue(1);
-   
+       nivel.setValue(0);
+       cambiaNivel();
        addObject(nivel, 440, 10);     
     }
     
@@ -116,9 +122,13 @@ public class WarWorld extends World
     {
       nivel.setValue(nivel.getValue() + 1);     
       
+      
       if(nivel.getValue() == 1)
       {
        setBackground("descarga4.jpg");   
+       B=1;
+       addBon();
+       
       }
       
       if(nivel.getValue() == 2)
@@ -133,6 +143,10 @@ public class WarWorld extends World
        setBackground("campodebatalla2.jpg");   
 
        addImaLv2();
+       B=2;
+       addBon();
+       
+       
       }
       
       if(nivel.getValue() == 3)
@@ -152,6 +166,8 @@ public class WarWorld extends World
        
        addImaLvL3();
        
+       B=3;
+       addBon();
        
        setBackground("Ima(1).jpg");   
       }
@@ -159,7 +175,7 @@ public class WarWorld extends World
       if(nivel.getValue() > 3)
       {
        nivel.setValue(3);   
-       Greenfoot.stop(); 
+       Greenfoot.setWorld(new MENU());   
       }
       
     }
@@ -224,6 +240,7 @@ public class WarWorld extends World
     
     public void addBalaEnL2()
     {
+      Greenfoot.playSound( "Gun.wav");  
      if(lanzacohetes1.vida>0)
      {
       addObject (new BalaEnemy(), 537, 55);   
@@ -256,7 +273,8 @@ public class WarWorld extends World
     
     public void addBalaEnTor()
     {
-      if(torre1.vida>0)
+      Greenfoot.playSound( "Bomba.mp3");  
+        if(torre1.vida>0)
       {  
        addObject (new BalaEnemy(), 122, 55);
        addObject (new BalaEnemy(), 168, 55);
@@ -276,7 +294,8 @@ public class WarWorld extends World
     
      public void addBalaEnL3()
     {
-      if(lanzacohetes1.vida>0)
+      Greenfoot.playSound( "Gun.wav");  
+        if(lanzacohetes1.vida>0)
       { 
        addObject (new BalaEnemy(), 225, 140);
       }
@@ -294,7 +313,31 @@ public class WarWorld extends World
       if(torre1.vida<=0 && torre2.vida<=0 && torre3.vida<=0)   
       {
        Greenfoot.setWorld(new Ganaste());   
+       Greenfoot.delay(300);
+       Greenfoot.setWorld(new MENU());   
+       
       }
      }
+    }
+    
+    public void addBon()
+    {
+      
+      
+        switch(B)
+      {
+         case 1: 
+         addObject (VID, Greenfoot.getRandomNumber(670)+10, 444);
+         break;
+         
+         case 2:
+         addObject (new Escudo(), Greenfoot.getRandomNumber(670)+10, 444);
+         break;
+         
+         case 3:
+         addObject (new Daño(), Greenfoot.getRandomNumber(670)+10, 444);
+         break;
+         
+      }
     }
 }
