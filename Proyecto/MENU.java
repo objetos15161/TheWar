@@ -35,13 +35,13 @@ public class MENU extends World
     {
        boton_jugar = new Boton_Jugar();
        salir_boton = new Salir_Boton();
-       record_boton =new Record_Boton();
+       //record_boton =new Record_Boton();
        boton_ayuda = new Boton_Ayuda();
        
        this.addObject(boton_jugar, 343, 156);
-       this.addObject(salir_boton, 353, 404);
-       this.addObject(record_boton, 590, 290);
-       this.addObject(boton_ayuda, 137, 294);
+       this.addObject(salir_boton, 343, 404);
+       //this.addObject(record_boton, 590, 290);
+       this.addObject(boton_ayuda, 343, 294);
    
     }
     
@@ -63,10 +63,10 @@ public class MENU extends World
             {
                 Greenfoot.stop();
             }
-            else if(Greenfoot.mousePressed(record_boton))
+            /*else if(Greenfoot.mousePressed(record_boton))
             {
               Greenfoot.setWorld(new Records());
-            }
+            }*/
             else if(Greenfoot.mousePressed(boton_ayuda))
             {
               Greenfoot.setWorld(new AYUDA());

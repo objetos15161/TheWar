@@ -210,7 +210,7 @@ public class WarWorld extends World
       
       if(nivel.getValue() == 1)
       {
-       if(eliminados>=2)
+       if(eliminados>=4)
        { 
         cambiaNivel();   
         eliminados=0;
@@ -219,7 +219,7 @@ public class WarWorld extends World
 
       if(nivel.getValue() == 2)
       {
-        if(eliminados>=2)
+        if(eliminados>=4)
         { 
          cambiaNivel();   
         }  
@@ -314,7 +314,8 @@ public class WarWorld extends World
       {
        Greenfoot.setWorld(new Ganaste());   
        Greenfoot.delay(300);
-       Greenfoot.setWorld(new MENU());   
+       Greenfoot.setWorld(new MENU()); 
+       Greenfoot.stop();
        
       }
      }
