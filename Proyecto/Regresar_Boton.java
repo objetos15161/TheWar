@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Regresar_Boton extends Actor
+public class Regresar_Boton extends Boton
 {
     /**
      * Act - do whatever the Regresar_Boton wants to do. This method is called whenever
@@ -14,6 +14,14 @@ public class Regresar_Boton extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        regresar();
     }    
+    
+    public void regresar()
+    {
+        if(Greenfoot.mousePressed(this))
+         {
+          Greenfoot.setWorld(new MENU());
+         }
+    }
 }

@@ -11,7 +11,6 @@ public class MENU extends World
 {
     private Boton_Jugar boton_jugar;
     private Salir_Boton salir_boton;
-    private Record_Boton record_boton;
     private Boton_Ayuda boton_ayuda;
    
 
@@ -45,7 +44,7 @@ public class MENU extends World
    
     }
     
-    
+    /*  
     public void act()
     {
   
@@ -56,22 +55,21 @@ public class MENU extends World
             if(Greenfoot.mousePressed(boton_jugar))
             {
                    
-                Greenfoot.setWorld(new WarWorld());
+                //Greenfoot.setWorld(new WarWorld());
               
             }
             else if(Greenfoot.mousePressed(salir_boton))
             {
-                Greenfoot.stop();
+               // Greenfoot.stop();
             }
-            /*else if(Greenfoot.mousePressed(record_boton))
-            {
-              Greenfoot.setWorld(new Records());
-            }*/
+            
             else if(Greenfoot.mousePressed(boton_ayuda))
             {
-              Greenfoot.setWorld(new AYUDA());
+             // Greenfoot.setWorld(new AYUDA());
             }
+           
         }
 
     }
+    */
 }

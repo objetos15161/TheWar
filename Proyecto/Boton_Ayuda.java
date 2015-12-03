@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Boton_Ayuda extends Actor
+public class Boton_Ayuda extends Boton
 {
     /**
      * Act - do whatever the Boton_Ayuda wants to do. This method is called whenever
@@ -14,6 +14,14 @@ public class Boton_Ayuda extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+        ayuda();
     }    
+    
+    public void ayuda()
+    {
+         if(Greenfoot.mousePressed(this))
+            {
+              Greenfoot.setWorld(new AYUDA());
+            }
+    }
 }

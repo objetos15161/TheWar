@@ -6,7 +6,7 @@ import greenfoot.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Boton_Jugar extends Actor
+public class Boton_Jugar extends Boton
 {
     /**
      * Act - do whatever the Boton_Jugar wants to do. This method is called whenever
@@ -14,6 +14,16 @@ public class Boton_Jugar extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
+       Jugar();
     }    
+    
+    public void Jugar()
+    {
+        if(Greenfoot.mousePressed(this))
+            {
+                   
+                Greenfoot.setWorld(new WarWorld());
+              
+            }
+    }
 }

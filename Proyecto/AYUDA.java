@@ -22,9 +22,9 @@ public class AYUDA extends World
         regresar_boton = new Regresar_Boton();
         addObject(regresar_boton,72,40);  
         
-        act();
+        //act();
     }   
-
+    /*
     public void act()
     {
        if(Greenfoot.getMouseInfo()!=null)
@@ -35,5 +35,5 @@ public class AYUDA extends World
          }
         }
     }
-    
+    */
 }
