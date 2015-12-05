@@ -12,23 +12,28 @@ public class Reloj extends Actor
 {
     protected SimpleTimer timer;
     protected Counter valor;
+    protected Counter bonif;
     private BalaEnemy BEN;
    
     private Message message = null;
+    private int tiempoBon=250;
  
-    int n;
-    //int i=0;
+    private int n;
     
     public Reloj()
     {
         valor = new Counter("Tiempo: ");
+        bonif = new Counter("Bonificacion: ");
         timer = new SimpleTimer();
         message = new Message("¡¡Game Over... Perdiste!!");
+        
+        bonif.setValue(10);
     }    
     
     protected void addedToWorld(World mundo)
     {
-        mundo.addObject(valor, 250, 10);
+      mundo.addObject(valor, 250, 10);
+      mundo.addObject(bonif, 620, 480);  
     }
     
     /**
@@ -39,7 +44,7 @@ public class Reloj extends Actor
     {
         WarWorld mundo = (WarWorld) getWorld();
 
-        if(timer.millisElapsed()>900)
+        if(timer.millisElapsed()>800)
         {
             valor.add(1);
             timer.mark();
@@ -97,33 +102,21 @@ public class Reloj extends Actor
     
     public void activaBalE2()
     {
-               WarWorld mundo = (WarWorld) getWorld();
-               /*if(valor.getValue()>3)
-               {
-                  if(valor.getValue()%60==0)
-                  {
-
-                  //Greenfoot.stop();
-                  //setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
-                  }
-               }*/
+      WarWorld mundo = (WarWorld) getWorld();
                
-               List listaLanzaCohetes = mundo.getObjects(LanzaCohetes.class);
+      List listaLanzaCohetes = mundo.getObjects(LanzaCohetes.class);
                
-               if(valor.getValue()>6)
-                {
-                  if(valor.getValue()%6==0 )
-                  {
-                    if(listaLanzaCohetes.size()>0)
-                    {
-
-                        mundo.addBalaEnL2();
-                     
-                    }
-                  }
-                }
-    }
-    
+      if(valor.getValue()>6)
+      {
+        if(valor.getValue()%6==0 )
+        {
+          if(listaLanzaCohetes.size()>0)
+          {
+           mundo.addBalaEnL2();              
+          }
+        }
+      }
+    }  
     
     public void activanivel3()
     {
@@ -133,32 +126,20 @@ public class Reloj extends Actor
                 List listaLanzaCohetes = mundo.getObjects(LanzaCohetes.class);
                 
                mundo.ganaste();
-                
-               if(valor.getValue()>3)
-               {
-                  if(valor.getValue()%60==0)
-                  {
-
-                  //Greenfoot.stop();
-                  //setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
-                  }
-               }
                
                if(valor.getValue()>6)
                 {
                   if(valor.getValue()%3==0 )
                   {
                     if(listaTorres.size()>0)
-                    {
-                        
+                    {                   
                         mundo.addBalaEnTor(); 
                     }
                   }
                   if(valor.getValue()%5==0 )
                   {
                     if(listaLanzaCohetes.size()>0)
-                    {  
-                       
+                    {                         
                         mundo.addBalaEnL3(); 
                     }
                   }
@@ -168,13 +149,40 @@ public class Reloj extends Actor
     public void terminaJuego()
     {
      World mundo = getWorld();
-      
+     
      if(valor.getValue() == 59)
      {
       mundo.addObject(message,250,100);
       Greenfoot.delay(300);
       Greenfoot.setWorld(new MENU());   
      }
-    }
+    }   
     
+    public void tiempoBonif()
+    {
+      WarWorld mundo = (WarWorld) getWorld(); 
+        
+      Tanque t = mundo.dimeTanque(); 
+      
+      if(tiempoBon>=0)
+      {
+        
+        if(timer.millisElapsed()>785)
+        {
+         bonif.setValue(bonif.getValue()-1);   
+         System.out.println(tiempoBon);
+        }
+        
+        if(valor.getValue()%2==0)
+        {
+         tiempoBon--;  
+        } 
+      }
+       else
+       {
+        //mundo.removeObject(bonif);   
+        bonif.setValue(10);
+        t.res=0;  
+       }
+    }
 }

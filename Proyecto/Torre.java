@@ -14,8 +14,7 @@ public class Torre extends Soldado
      */
     
     public int vida=300;
-
-      
+ 
     public void act() 
     {
      disminuyeVida();
@@ -23,22 +22,37 @@ public class Torre extends Soldado
     
     public void disminuyeVida()
     {
-     World mundo = getWorld();
+     WarWorld mundo = (WarWorld) getWorld(); 
         
-     if(vida<=300 && vida>0)
-     {  
-       if(isTouching(BalaJug.class))
-       {
-        removeTouching(BalaJug.class);
-        vida=vida-100;
-       }
-     }
+     Tanque t = mundo.dimeTanque();
+        
+        if(t.res==1)
+        {
+          if(vida<=300 && vida>0)
+          {  
+            if(this.isTouching(BalaJug.class))
+            {
+             removeTouching(BalaJug.class);
+             vida=vida-200;
+            }
+          }
+        }
+         else
+         {  
+           if(vida<=300 && vida>0)
+           {
+            if(isTouching(BalaJug.class))
+            {
+             removeTouching(BalaJug.class);
+             vida=vida-100;
+            }
+           }
+         }
          
      if( vida<=0  )
      {
       mundo.removeObject(this);
      }
     }
-    
- 
 }
+

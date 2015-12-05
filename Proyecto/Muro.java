@@ -1,3 +1,4 @@
+
 import greenfoot.*;
 
 /**
@@ -8,15 +9,13 @@ import greenfoot.*;
  */
 public class Muro extends Actor
 {
-     private int vida=200;
-    int L;
-    //int ContM=0;
-    int Mval;
+    private int vida=200;
     
     /**
      * Act - do whatever the Muro wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
     public void act() 
     {
       checa();
@@ -25,33 +24,35 @@ public class Muro extends Actor
     public void checa()
     {
       WarWorld mundo = (WarWorld) getWorld(); 
-        
-      L=mundo.nivel.getValue();
       
-         if(vida<=200 && vida>0)
-         { 
+      Tanque t = mundo.dimeTanque();
+        
+        if(t.res==1)
+        {
+          if(vida<=200 && vida>0)
+          {  
+            if(this.isTouching(BalaJug.class))
+            {
+             removeTouching(BalaJug.class);
+             vida=vida-200;
+            }
+          }
+        }
+         else
+         {  
+          if(vida<=200 && vida>0)
+          { 
            if(isTouching(BalaJug.class))
            {
             removeTouching(BalaJug.class);
             vida=vida-100; 
            }
+          }
          }
          
         if( vida<=0  )
         {
          mundo.removeObject(this);
         }
-
-        /* if(isTouching(BalaJug.class))
-         {     
-           //ContM++;
-           mundo.removeObject(this);   
-         }  */   
-    }
-    
-    /*public void regresaVal(int )
-    {
-       Mval=ContM; 
-    }
-    */
+     }
 }

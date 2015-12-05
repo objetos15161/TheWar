@@ -1,17 +1,17 @@
 #BlueJ class context
 comment0.params=theText
 comment0.target=Message(java.lang.String)
-comment0.text=\ \n\ Constructor\ that\ takes\ the\ text\ to\ display\n
+comment0.text=\ \r\n\ Constructor\ that\ takes\ the\ text\ to\ display\r\n
 comment1.params=theText\ theWidth\ theHeight
 comment1.target=Message(java.lang.String,\ int,\ int)
-comment1.text=\n\ Constructor\ that\ takes\ the\ text\ to\ display,\ the\ width,\n\ and\ the\ height\n\ @param\ theText\ \ \ the\ text\ to\ use\n\ @param\ theWidth\ \ the\ width\ to\ use\n\ @param\ theHeight\ the\ height\ to\ use\n
+comment1.text=\r\n\ Constructor\ that\ takes\ the\ text\ to\ display,\ the\ width,\r\n\ and\ the\ height\r\n\ @param\ theText\ \ \ the\ text\ to\ use\r\n\ @param\ theWidth\ \ the\ width\ to\ use\r\n\ @param\ theHeight\ the\ height\ to\ use\r\n
 comment2.params=theText
 comment2.target=void\ setText(java.lang.String)
-comment2.text=\n\ Method\ to\ change\ the\ text\ in\ this\ message\n\ @param\ theText\ the\ new\ text\ to\ usee\n
+comment2.text=\r\n\ Method\ to\ change\ the\ text\ in\ this\ message\r\n\ @param\ theText\ the\ new\ text\ to\ usee\r\n
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\ \n\ Messages\ don't\ do\ anything\ when\ asked\ to\ act\n
+comment3.text=\ \r\n\ Messages\ don't\ do\ anything\ when\ asked\ to\ act\r\n
 comment4.params=
 comment4.target=void\ updateImage()
-comment4.text=\n\ Method\ to\ create\ and\ set\ the\ image\ for\ this\ message\n\ Invoke\ this\ method\ when\ the\ text\ changes,\ the\ width\ changes,\ and/or\n\ the\ height\ changes\n
+comment4.text=\r\n\ Method\ to\ create\ and\ set\ the\ image\ for\ this\ message\r\n\ Invoke\ this\ method\ when\ the\ text\ changes,\ the\ width\ changes,\ and/or\r\n\ the\ height\ changes\r\n
 numComments=5

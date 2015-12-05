@@ -1,3 +1,4 @@
+
 import greenfoot.*;
 
 /**
@@ -8,19 +9,21 @@ import greenfoot.*;
  */
 public class Tanque extends Actor
 {
-    private Counter vidas;  
-    private int vida=300;
-    
+   private Counter vidas;  
+   private int vida=300;  
    
    private int Esc=0;
    private int Dan=0;
+   private int activo=0;
+   public int res=0;
     
-    private Message message = null;
+   private Message message = null;
     
     /**
      * Act - do whatever the Tanque wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
     public void act() 
     {
       mueve();
@@ -38,7 +41,7 @@ public class Tanque extends Actor
     
     protected void addedToWorld(World mundo)
     {
-        mundo.addObject(vidas, 50, 10);
+      mundo.addObject(vidas, 50, 10);
     }
     
     public void mueve()
@@ -65,7 +68,6 @@ public class Tanque extends Actor
             removeTouching(BalaEnemy.class);
             vida=vida-100;
             setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
-
            }
          }
          
@@ -78,7 +80,6 @@ public class Tanque extends Actor
            mundo.addObject(message,250,100);
            Greenfoot.delay(200);
            Greenfoot.setWorld(new MENU());   
-           //Greenfoot.stop();
           }
            else
            {
@@ -88,13 +89,17 @@ public class Tanque extends Actor
         }
     }
     
-    public void veifBoni()
+    public int veifBoni()
     {      
-        World mundo = getWorld();
+        WarWorld mundo = (WarWorld) getWorld(); 
+        
+        Reloj r = mundo.dimeReloj();
+        
+        //System.out.println(res);
+        
       
         if(isTouching(Vida.class))
-        {
-            
+        {       
           removeTouching(Vida.class); 
           vidas.setValue(vidas.getValue() + 1);     
       
@@ -103,27 +108,26 @@ public class Tanque extends Actor
         {
             if(isTouching(Escudo.class))
             {
-              removeTouching(Escudo.class); 
-               
+              removeTouching(Escudo.class);
             } 
-             
-                
-             /* System.out.println("TIME="+REL.valor.getValue());
-               REL.valor.setValue(0); 
-                Esc=1;
-              if( REL.valor.getValue() ==10)
-              {
-                  Esc=0;
-               }*/
+
             else
             {
                 if(isTouching(Daño.class))
                 {
                     removeTouching(Daño.class);   
-                    Dan=1;
+                    res=1;
+                    activo=1;
+                    //Dan=1;
                 }    
             }
         }
         
+        //System.out.println("activo "+activo);
+        if(activo==1)
+        {
+           r.tiempoBonif();
+        }
+        return res;
     }
 }
