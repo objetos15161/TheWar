@@ -1,4 +1,3 @@
-
 import greenfoot.*;
 
 /**
@@ -14,8 +13,9 @@ public class Tanque extends Actor
    
    private int Esc=0;
    private int Dan=0;
-   private int activo=0;
-   public int res=0;
+   public int daño=0;
+   public int escudoActivo=0;
+ 
     
    private Message message = null;
     
@@ -59,17 +59,28 @@ public class Tanque extends Actor
       
     public void disminuyeVidas()
     {
-        World mundo = getWorld();
+        WarWorld mundo = (WarWorld) getWorld(); 
         
+        Reloj r = mundo.dimeReloj();
+        
+        if(escudoActivo==0)
+        {
          if(vida<=300 && vida>0 && Esc==0)
          {  
           if(isTouching(BalaEnemy.class))
            {
             removeTouching(BalaEnemy.class);
+            System.out.println(vida);
             vida=vida-100;
             setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
            }
          }
+        }
+        
+        if(escudoActivo==1)
+        {
+         r.tiempoBonifEsc();   
+        }
          
         if( vida<=0  )
         {
@@ -95,20 +106,17 @@ public class Tanque extends Actor
         
         Reloj r = mundo.dimeReloj();
         
-        //System.out.println(res);
-        
-      
         if(isTouching(Vida.class))
         {       
           removeTouching(Vida.class); 
-          vidas.setValue(vidas.getValue() + 1);     
-      
+          vidas.setValue(vidas.getValue() + 1);          
         }
         else
         {
             if(isTouching(Escudo.class))
             {
               removeTouching(Escudo.class);
+              escudoActivo=1;
             } 
 
             else
@@ -116,18 +124,17 @@ public class Tanque extends Actor
                 if(isTouching(Daño.class))
                 {
                     removeTouching(Daño.class);   
-                    res=1;
-                    activo=1;
+                    daño=1;
                     //Dan=1;
                 }    
             }
         }
         
-        //System.out.println("activo "+activo);
-        if(activo==1)
+        System.out.println("activo "+daño);
+        if(daño==1)
         {
-           r.tiempoBonif();
+           r.tiempoBonifBala();
         }
-        return res;
+        return daño;
     }
 }

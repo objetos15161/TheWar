@@ -25,7 +25,7 @@ public class LanzaCohetes extends Soldado
         
         Tanque t = mundo.dimeTanque();
         
-        if(t.res==1)
+        if(t.daño==1)
         {
           if(vida<=200 && vida>0)
           {  

@@ -6,7 +6,6 @@ comment1.params=
 comment1.target=void\ act()
 comment10.params=
 comment10.target=void\ agregaBalaJ()
-comment10.text=public\ void\ agregaBalaArtillero()\r\n\ \ \ \ {\r\n\ \ \ \ \ \ List\ listaArtilleros\ \=\ this.getObjects(Artillero.class);\ \r\n\ \ \ \ \ \ \r\n\ \ \ \ \ \ Artillero\ a\ \=\ dimeArtillero();\ \ \r\n\ \ \ \ \ \ \r\n\ \ \ \ \ \ //listaArtilleros\ \=\ a.getX();\r\n\ \ \ \ \ \ \r\n\ \ \ \ \ \ //addObject(new\ BalaEnemy(),,220);\r\n\ \ \ \ \ \ \r\n}
 comment11.params=
 comment11.target=void\ aumentaEliminados()
 comment12.params=

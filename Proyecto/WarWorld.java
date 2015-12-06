@@ -40,13 +40,7 @@ public class WarWorld extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 500, 1); 
         Greenfoot.setWorld(new MENU());
-        //Greenfoot.playSound( "MDrums.mp3");
-        
-        /*if(System.started)
-        {
-         Greenfoot.playSound("musica de guerra.wav");    
-        }*/
-        
+
         Greenfoot.playSound("musica de guerra.wav");
  
         puntos = new Counter("Puntos: ");
@@ -58,7 +52,8 @@ public class WarWorld extends World
     
     public void act()
     {
-     agregaEnemigo();  
+     agregaEnemigo(); 
+     addBon();
     }
     
     public void actualizaPuntos()
@@ -127,13 +122,12 @@ public class WarWorld extends World
     }
     
     public void cambiaNivel()
-    {
+    { 
       nivel.setValue(nivel.getValue() + 1);     
        
       if(nivel.getValue() == 1)
       {
        setBackground("descarga4.jpg");  
-       B=1;
        addBon();    
       }
       
@@ -149,7 +143,6 @@ public class WarWorld extends World
        setBackground("campodebatalla2.jpg");   
 
        addImaLv2();
-       B=2;
        addBon();  
       }
       
@@ -169,8 +162,6 @@ public class WarWorld extends World
        removeObject(tanque);  
        
        addImaLvL3();
-       
-       B=3;
        addBon();
        
        setBackground("Ima(1).jpg");   
@@ -183,18 +174,6 @@ public class WarWorld extends World
       }
       
     }
-    
-    /*public void agregaBalaArtillero()
-    {
-      List listaArtilleros = this.getObjects(Artillero.class); 
-      
-      Artillero a = dimeArtillero();  
-      
-      //listaArtilleros = a.getX();
-      
-      //addObject(new BalaEnemy(),,220);
-      
-    }*/
     
     public void agregaBalaJ()
     {
@@ -318,16 +297,19 @@ public class WarWorld extends World
        Greenfoot.setWorld(new Ganaste());   
        Greenfoot.delay(300);
        Greenfoot.setWorld(new MENU()); 
-       Greenfoot.stop();
-       
+       Greenfoot.stop();       
       }
      }
     }
     
     public void addBon()
-    {     
-        switch(B)
-      {
+    { 
+      if(Greenfoot.getRandomNumber(820)<1)
+      {  
+       B=Greenfoot.getRandomNumber(3)+1;  
+      
+       switch(B)
+       {
          case 1: 
          addObject (VID, Greenfoot.getRandomNumber(670)+10, 444);
          break;
@@ -338,8 +320,8 @@ public class WarWorld extends World
          
          case 3:
          addObject (new Daño(), Greenfoot.getRandomNumber(670)+10, 444);
-         break;
-         
+         break;         
+       }
       }
     }
 }

@@ -26,7 +26,7 @@ public class Torre extends Soldado
         
      Tanque t = mundo.dimeTanque();
         
-        if(t.res==1)
+        if(t.daño==1)
         {
           if(vida<=300 && vida>0)
           {  

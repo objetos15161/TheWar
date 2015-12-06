@@ -17,7 +17,7 @@ public class Reloj extends Actor
    
     private Message message = null;
     private int tiempoBon=250;
- 
+    private int tiempoBonEsc=230;
     private int n;
     
     public Reloj()
@@ -81,7 +81,6 @@ public class Reloj extends Actor
       {    
        //if(i==0)
        //{
-       
          activaBalE2();
         //valor.setValue(0);
         //i=1;
@@ -158,19 +157,18 @@ public class Reloj extends Actor
      }
     }   
     
-    public void tiempoBonif()
+    public void tiempoBonifBala()
     {
       WarWorld mundo = (WarWorld) getWorld(); 
         
       Tanque t = mundo.dimeTanque(); 
       
       if(tiempoBon>=0)
-      {
-        
-        if(timer.millisElapsed()>785)
+      {       
+        if(timer.millisElapsed()>795)
         {
          bonif.setValue(bonif.getValue()-1);   
-         System.out.println(tiempoBon);
+         //System.out.println(tiempoBon);
         }
         
         if(valor.getValue()%2==0)
@@ -180,9 +178,46 @@ public class Reloj extends Actor
       }
        else
        {
-        //mundo.removeObject(bonif);   
         bonif.setValue(10);
-        t.res=0;  
+        t.daño=0;
+        tiempoBon=250;
        }
+    }
+    
+    public void tiempoBonifEsc()
+    {
+      WarWorld mundo = (WarWorld) getWorld(); 
+        
+      Tanque t = mundo.dimeTanque();  
+      
+      if(tiempoBonEsc>=0)
+      {   
+        if(timer.millisElapsed()>795)
+        {
+         bonif.setValue(bonif.getValue()-1);   
+         System.out.println(tiempoBonEsc);
+        }
+        
+        if(valor.getValue()%2==0)
+        {
+         tiempoBonEsc--;  
+        } 
+      }
+       else
+       {
+        bonif.setValue(10);
+        t.escudoActivo=0; 
+        tiempoBonEsc=250;
+       }
+    }
+    
+    public void agregaBonif()
+    {
+     WarWorld mundo = (WarWorld) getWorld(); 
+           
+     if(valor.getValue()%30==1)
+     {
+      mundo.addBon();   
+     }
     }
 }
