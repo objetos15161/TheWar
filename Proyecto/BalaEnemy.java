@@ -16,9 +16,9 @@ public class BalaEnemy extends Municion
      */
     public void act() 
     {
-       mueve();
+       mueve();///Hace qu la bala se mueve hacia abajo donde esta el tanque
 
-       Check();
+       Check();//Verifica si esta tocando la coordenada mas alta en Y del MUNDO esta se elimina 
     }    
     public void mueve()
     {

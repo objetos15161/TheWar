@@ -13,7 +13,7 @@ public class Torre extends Soldado
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    public int vida=300;
+    public int vida=300;//La vida que tiene la Torre
  
     public void act() 
     {
@@ -26,14 +26,14 @@ public class Torre extends Soldado
         
      Tanque t = mundo.dimeTanque();
         
-        if(t.daño==1)
+        if(t.daño==1)/**verifica si aun tiene la bonificacion el tanque */
         {
-          if(vida<=300 && vida>0)
+          if(vida<=300 && vida>0)/**verifica si aun tiene vida el soldado */
           {  
-            if(this.isTouching(BalaJug.class))
+            if(this.isTouching(BalaJug.class))/**cuando esta tocando la BalaJug la bala se elimina */
             {
-             removeTouching(BalaJug.class);
-             vida=vida-200;
+             removeTouching(BalaJug.class);/** se eliminala balaJug*/
+             vida=vida-200; /** se decrementa la vida*/
             }
           }
         }
@@ -44,12 +44,12 @@ public class Torre extends Soldado
             if(isTouching(BalaJug.class))
             {
              removeTouching(BalaJug.class);
-             vida=vida-100;
+             vida=vida-100; /** se decrementa la vida*/
             }
            }
          }
          
-     if( vida<=0  )
+     if( vida<=0  )/**cuando ya no tiene vida el soldado este se elimina  */
      {
       mundo.removeObject(this);
      }

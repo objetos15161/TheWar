@@ -132,6 +132,7 @@ public class Reloj extends Actor
                   {
                     if(listaTorres.size()>0)
                     {                   
+
                         mundo.addBalaEnTor(); 
                     }
                   }

@@ -24,7 +24,9 @@ public class WarWorld extends World
     
     private Vida VID = new Vida();
     private Reloj reloj;
-
+    private GreenfootSound muLcohete;
+    private GreenfootSound muTorre; 
+    //private GreenfootSound muJuego; 
     int nEnemigos=0;
     int nEnemigosNv2=0;
     int eliminados=0;
@@ -41,8 +43,10 @@ public class WarWorld extends World
         super(700, 500, 1); 
         Greenfoot.setWorld(new MENU());
 
-        Greenfoot.playSound("musica de guerra.wav");
- 
+        
+        //muJuego= new GreenfootSound("musica de guerra.wav");
+        muLcohete= new GreenfootSound("Gun.wav");
+        muTorre= new GreenfootSound( "Bomba.mp3");
         puntos = new Counter("Puntos: ");
         puntos.setValue(0);
         addObject(puntos, 650, 10);
@@ -148,6 +152,8 @@ public class WarWorld extends World
       
       if(nivel.getValue() == 3)
       {   
+       
+       muLcohete.stop();   
        List listaArtilleros = this.getObjects(Artillero.class); 
        List listaBalasJ = this.getObjects(BalaJug.class);
        List listaLanzaCohetes = this.getObjects(LanzaCohetes.class);
@@ -222,12 +228,13 @@ public class WarWorld extends World
     
     public void addBalaEnL2()
     {
-      Greenfoot.playSound( "Gun.wav");  
+      //Greenfoot.playSound( "Gun.wav");  
+      
      if(lanzacohetes1.vida>0)
      {
       addObject (new BalaEnemy(), 537, 55);   
      } 
-     
+     muLcohete.play();
      if(lanzacohetes2.vida>0)
      {
       addObject (new BalaEnemy(), 137, 55);   
@@ -255,33 +262,40 @@ public class WarWorld extends World
     
     public void addBalaEnTor()
     {
-      Greenfoot.playSound( "Bomba.mp3");  
+
+       muTorre.play();
       if(torre1.vida>0)
       {  
        addObject (new BalaEnemy(), 122, 55);
        addObject (new BalaEnemy(), 168, 55);
+
       }
-      
+
       if(torre2.vida>0)
       {  
        addObject (new BalaEnemy(), 360, 55);
+
       }
-      
+
       if(torre3.vida>0)
       {  
        addObject (new BalaEnemy(), 545, 55);
        addObject (new BalaEnemy(), 588, 55);
+
       }
+     
+
     }
     
     public void addBalaEnL3()
     {
-      Greenfoot.playSound( "Gun.wav");  
+      //Greenfoot.playSound( "Gun.wav");  
+
         if(lanzacohetes1.vida>0)
       { 
        addObject (new BalaEnemy(), 225, 140);
       }
-      
+      muLcohete.play();
       if(lanzacohetes2.vida>0)
       { 
        addObject (new BalaEnemy(), 475, 140);
@@ -294,10 +308,12 @@ public class WarWorld extends World
      {
       if(torre1.vida<=0 && torre2.vida<=0 && torre3.vida<=0)   
       {
+       muLcohete.stop();
+       muTorre.stop();
        Greenfoot.setWorld(new Ganaste());   
        Greenfoot.delay(300);
        Greenfoot.setWorld(new MENU()); 
-       Greenfoot.stop();       
+       //Greenfoot.stop();       
       }
      }
     }

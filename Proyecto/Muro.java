@@ -26,14 +26,14 @@ public class Muro extends Actor
       
       Tanque t = mundo.dimeTanque();
         
-        if(t.daño==1)
+        if(t.daño==1)/**verifica si aun tiene la bonificacion el tanque */
         {
-          if(vida<=200 && vida>0)
+          if(vida<=200 && vida>0)/**verifica si aun tiene vida el muro */
           {  
-            if(this.isTouching(BalaJug.class))
+            if(this.isTouching(BalaJug.class))/**cuando esta tocando la BalaJug la bala se elimina */
             {
-             removeTouching(BalaJug.class);
-             vida=vida-200;
+             removeTouching(BalaJug.class);/** se eliminala balaJug*/
+             vida=vida-200;/** se decrementa la vida*/
             }
           }
         }
@@ -49,7 +49,7 @@ public class Muro extends Actor
           }
          }
          
-        if( vida<=0  )
+        if( vida<=0  )/**cuando ya no tiene vida el muro este se elimina  */
         {
          mundo.removeObject(this);
         }

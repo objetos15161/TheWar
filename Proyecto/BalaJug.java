@@ -12,7 +12,7 @@ public class BalaJug extends Municion
     //private Counter puntos;  
     
     int eliminados=0;
-    int a;
+    
     Muro M;
     
     /**
@@ -22,8 +22,8 @@ public class BalaJug extends Municion
     
     public void act() 
     {
-       mueve();
-       checa();
+       mueve();//Hace qu la bala se mueve hacia arriba 
+       checa();//Verifica si esta tocando un soldado y actualiza estados de puntuacion y vidas
 
     } 
     
@@ -47,15 +47,15 @@ public class BalaJug extends Municion
       if(isTouching(Artillero.class)) 
       { 
         
-        mundo.actualizaPuntos();
-        mundo.aumentaEliminados();
+        mundo.actualizaPuntos();//actualiza el contador de los puntos
+        mundo.aumentaEliminados();//actualiza la bandera de los eliminados
       }
       else
       {
        if(getY()== 0)   
        {
            
-       mundo.removeObject(this);   
+       mundo.removeObject(this);   //elimina la bala
        }
       }     
     }    
