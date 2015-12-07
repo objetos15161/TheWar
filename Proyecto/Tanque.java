@@ -125,12 +125,11 @@ public class Tanque extends Actor
                 {
                     removeTouching(Daño.class);   
                     daño=1;
-                    //Dan=1;
                 }    
             }
         }
         
-        System.out.println("activo "+daño);
+        //System.out.println("activo "+daño);
         if(daño==1)
         {
            r.tiempoBonifBala();

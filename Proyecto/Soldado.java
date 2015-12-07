@@ -17,8 +17,7 @@ public class Soldado extends Actor
     public void act() 
     {
        mueve();
-    }    
-    
+    }       
     
     public void mueve()
     {

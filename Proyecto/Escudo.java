@@ -14,6 +14,6 @@ public class Escudo extends Bonificacion
      */
     public void act() 
     {
-        // Add your action code here.
+      setImage("ESK.png");
     }    
 }

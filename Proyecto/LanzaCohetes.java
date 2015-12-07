@@ -13,8 +13,7 @@ public class LanzaCohetes extends Soldado
      * the 'Act' or 'Run' button gets pressed in the environment.
      */    
     public int vida=200;//La vida que tiene el LanzaCohete
-    
-    
+
     public void act() 
     {
       disminuyeVida();//El contador de las vidas se actualiza cuando este es tocado por la balaJug

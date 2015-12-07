@@ -10,6 +10,7 @@ import java.util.List;
  */
 public class WarWorld extends World
 {
+    /** Crea un objeto de las clases*/
     private Tanque tanque = new Tanque(3);  
     private Artillero artillero = new Artillero();   
     private LanzaCohetes lanzacohetes;
@@ -19,11 +20,11 @@ public class WarWorld extends World
     private Torre torre2 = new Torre();
     private Torre torre3 = new Torre();
     
-    public Counter nivel;
-    private Counter puntos;
+    public Counter nivel; /** Contador del nivel */
+    private Counter puntos; /** Contador de puntos */
     
-    private Vida VID = new Vida();
-    private Reloj reloj;
+    private Vida VID = new Vida(); /** Contador de vidas */
+    private Reloj reloj; 
     private GreenfootSound muLcohete;
     private GreenfootSound muTorre; 
     private GreenfootSound muWin; 
@@ -200,7 +201,7 @@ public class WarWorld extends World
       
       if(nivel.getValue() == 1)
       {
-       if(eliminados>=2)
+       if(eliminados>=4)
        { 
         cambiaNivel();   
         eliminados=0;
@@ -209,7 +210,7 @@ public class WarWorld extends World
 
       if(nivel.getValue() == 2)
       {
-        if(eliminados>=2)
+        if(eliminados>=4)
         { 
          cambiaNivel();   
         }  
@@ -264,8 +265,8 @@ public class WarWorld extends World
     
     public void addBalaEnTor()/**Agrega la bala de la torre en nivel 3 */
     {
-
-       muTorre.play();
+      muTorre.play();
+       
       if(torre1.vida>0)
       {  
        addObject (new BalaEnemy(), 122, 55);
@@ -291,9 +292,7 @@ public class WarWorld extends World
     
     public void addBalaEnL3()/**Agrega la bala del lanzacohetes en nivel 3 */
     {
-      //Greenfoot.playSound( "Gun.wav");  
-
-        if(lanzacohetes1.vida>0)
+      if(lanzacohetes1.vida>0)
       { 
        addObject (new BalaEnemy(), 225, 140);
       }
@@ -318,8 +317,7 @@ public class WarWorld extends World
        Greenfoot.setWorld(new Ganaste());   
        Greenfoot.delay(300);
        muWin.stop();
-       Greenfoot.setWorld(new MENU()); 
-       //Greenfoot.stop();       
+       Greenfoot.setWorld(new MENU());       
       }
      }
     }

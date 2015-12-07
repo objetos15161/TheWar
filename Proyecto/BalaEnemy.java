@@ -8,8 +8,6 @@ import greenfoot.*;
  */
 public class BalaEnemy extends Municion
 {
-    
-    
     /**
      * La bala que representa al enemigo
      */

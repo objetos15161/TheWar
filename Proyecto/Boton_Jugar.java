@@ -21,7 +21,6 @@ public class Boton_Jugar extends Boton
     {
         if(Greenfoot.mousePressed(this))/**Cuando se hace click en la imagen el juego inicia*/
             {
-
                 Greenfoot.setWorld(new WarWorld());
                 muJuego.play();
             }

@@ -14,6 +14,6 @@ public class Daño extends Bonificacion
      */
     public void act() 
     {
-        // Add your action code here.
+      setImage("BAL.png");
     }    
 }

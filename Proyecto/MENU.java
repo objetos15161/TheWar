@@ -36,7 +36,7 @@ public class MENU extends World
 
        boton_ayuda = new Boton_Ayuda();
        
-       this.addObject(boton_jugar, 343, 156);
+       this.addObject(boton_jugar, 343, 156); /** Agrega el boton de jugar */
        this.addObject(salir_boton, 343, 404);
        this.addObject(boton_ayuda, 343, 294);
    

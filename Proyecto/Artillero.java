@@ -23,13 +23,6 @@ public class Artillero extends Soldado
      {
         removeTouching(BalaJug.class);
          mundo.removeObject(this); 
-        /*eliminados++;
-        System.out.println("ELIMINADOS="+eliminados);
-        if(eliminados>=10)
-        {
-         mundo.cambiaNivel();   
-
-        }*/
-        }
      }
+    }
 }

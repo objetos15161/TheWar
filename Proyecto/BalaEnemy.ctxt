@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment0.text=\n\ La\ bala\ que\ representa\ al\ enemigo\n
+comment0.text=\r\n\ La\ bala\ que\ representa\ al\ enemigo\r\n
 comment1.params=
 comment1.target=void\ mueve()
 comment2.params=

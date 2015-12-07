@@ -14,6 +14,6 @@ public class Vida extends Bonificacion
      */
     public void act() 
     {
-        // Add your action code here.
+      setImage("COR.png");
     }    
 }

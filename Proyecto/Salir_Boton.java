@@ -19,8 +19,8 @@ public class Salir_Boton extends Boton
     public void salir()
     {
      if(Greenfoot.mousePressed(this))/**Cuando se hace click en la imagen el juego se detiene*/
-           {
-               Greenfoot.stop();
-            }   
+     {
+      Greenfoot.stop();
+     }   
     }
 }

@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=MENU()
-comment0.text=\n\ Crea\ el\ MENU\ del\ juego\ con\ sus\ respectivos\ botones\n
+comment0.text=\r\n\ Crea\ el\ MENU\ del\ juego\ con\ sus\ respectivos\ botones\r\n
 comment1.params=
 comment1.target=void\ crearBotones()
 numComments=2

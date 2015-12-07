@@ -13,7 +13,6 @@ public class Reloj extends Actor
     protected SimpleTimer timer;
     protected Counter valor;
     protected Counter bonif;
-    //private BalaEnemy BEN;
    
     private Message message = null;
     private int tiempoBon=250;
@@ -44,7 +43,7 @@ public class Reloj extends Actor
     public void act() 
     {
         WarWorld mundo = (WarWorld) getWorld();
-
+        
         if(timer.millisElapsed()>800)
         {
             valor.add(1);
@@ -52,18 +51,7 @@ public class Reloj extends Actor
             
             mundo.agregaBalaJ(); 
             
-            reiniciaReloj(); 
-            
-             /*n=mundo.nivel.getValue();
-            if(n==2)
-            {
-             activaBalE2();
-            }
-             if(n==3)
-            {
-             activanivel3();
-             
-            }*/     
+            reiniciaReloj();  
         }           
     }    
     
@@ -82,25 +70,14 @@ public class Reloj extends Actor
       
       if(n==2)
       {    
-       //if(i==0)
-       //{
          activaBalE2();
-        //valor.setValue(0);
-        //i=1;
-        //}
-        //terminaJuego();  
       }
       
       if(n==3)
       {
-       //if(i==1)
-       //{
         activanivel3();   
-        //valor.setValue(0);  
-        //i=2;
-       }
-        //terminaJuego();  
       }
+     }
     
     public void activaBalE2()/** Hace el llamado para que agregue las balas 
                              del enemigo en nivel 2*/
@@ -171,7 +148,7 @@ public class Reloj extends Actor
       
       if(tiempoBon>=0)
       {       
-        if(timer.millisElapsed()>795)
+        if(timer.millisElapsed()>796)
         {
          bonif.setValue(bonif.getValue()-1);   
          //System.out.println(tiempoBon);
@@ -198,10 +175,10 @@ public class Reloj extends Actor
       
       if(tiempoBonEsc>=0)
       {   
-        if(timer.millisElapsed()>795)
+        if(timer.millisElapsed()>796)
         {
          bonif.setValue(bonif.getValue()-1);   
-         System.out.println(tiempoBonEsc);
+         //System.out.println(tiempoBonEsc);
         }
         
         if(valor.getValue()%2==0)
