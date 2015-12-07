@@ -13,7 +13,7 @@ public class BalaJug extends Municion
     
     int eliminados=0;
     
-    Muro M;
+  
     
     /**
      * Act - do whatever the BalaJug wants to do. This method is called whenever
@@ -61,11 +61,7 @@ public class BalaJug extends Municion
     }    
    
     
-    public Muro dimeMuro()
-    {
-      return M ;  
-    }
-    
+  
     /*public void checkMuro()
     {
         WarWorld mundo = (WarWorld) getWorld();

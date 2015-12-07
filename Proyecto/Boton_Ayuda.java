@@ -9,8 +9,7 @@ import greenfoot.*;
 public class Boton_Ayuda extends Boton
 {
     /**
-     * Act - do whatever the Boton_Ayuda wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Representa el boton de AYUDA del MENU 
      */
     public void act() 
     {
@@ -19,7 +18,8 @@ public class Boton_Ayuda extends Boton
     
     public void ayuda()
     {
-         if(Greenfoot.mousePressed(this))
+         if(Greenfoot.mousePressed(this))/**Cuando se hace click en la imagen aparece una imagen
+                                            con las intrucciones del juego*/
             {
               Greenfoot.setWorld(new AYUDA());
             }

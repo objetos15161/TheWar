@@ -2,10 +2,10 @@ import greenfoot.*;
 import java.util.List;
 
 /**
- * Write a description of class Reloj here.
- * 
+ * Con el reloj dependenden varias clases como las bonificaciones que duran cierto tiempo
+ * tambien las balas que aparecen cada determinando tiempo 
  * @author (your name) 
- * @version (a version number or a date)
+ * @version (1.5)
  */
 
 public class Reloj extends Actor
@@ -13,14 +13,14 @@ public class Reloj extends Actor
     protected SimpleTimer timer;
     protected Counter valor;
     protected Counter bonif;
-    private BalaEnemy BEN;
+    //private BalaEnemy BEN;
    
     private Message message = null;
     private int tiempoBon=250;
     private int tiempoBonEsc=230;
     private int n;
     
-    public Reloj()
+    public Reloj()/**Se asigna a cada variable el tipo de objeto a usar*/
     {
         valor = new Counter("Tiempo: ");
         bonif = new Counter("Bonificacion: ");
@@ -29,7 +29,8 @@ public class Reloj extends Actor
         
         bonif.setValue(10);
     }    
-    
+    /**@param World mundo 
+     * Se añade al mundo el contador del tiempo y de la bonificacion*/
     protected void addedToWorld(World mundo)
     {
       mundo.addObject(valor, 250, 10);
@@ -37,8 +38,8 @@ public class Reloj extends Actor
     }
     
     /**
-     * Act - do whatever the Reloj wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     *@param tiene un limite maximo 
+     *Es donde se añaden las balas  y se le asigna el tiempo a las bonificaciones
      */
     public void act() 
     {
@@ -66,7 +67,9 @@ public class Reloj extends Actor
         }           
     }    
     
-     public void reiniciaReloj()
+     public void reiniciaReloj() /** Se reinicia el reloj cada vez que cambia de nivel
+                                   Hace el llamado para que agregue las balas 
+                                   del enemigo acorde el nivel */
     {
       WarWorld mundo = (WarWorld) getWorld();  
       
@@ -99,7 +102,8 @@ public class Reloj extends Actor
         //terminaJuego();  
       }
     
-    public void activaBalE2()
+    public void activaBalE2()/** Hace el llamado para que agregue las balas 
+                             del enemigo en nivel 2*/
     {
       WarWorld mundo = (WarWorld) getWorld();
                
@@ -117,7 +121,8 @@ public class Reloj extends Actor
       }
     }  
     
-    public void activanivel3()
+    public void activanivel3()/** Hace el llamado para que agregue las balas 
+                             del enemigo en nivel 3*/
     {
                 WarWorld mundo = (WarWorld) getWorld();
                 
@@ -146,7 +151,7 @@ public class Reloj extends Actor
                }
     }
       
-    public void terminaJuego()
+    public void terminaJuego()/** Si al inicio el tiempo llega a 59 el juego termina*/
     {
      World mundo = getWorld();
      
@@ -158,7 +163,7 @@ public class Reloj extends Actor
      }
     }   
     
-    public void tiempoBonifBala()
+    public void tiempoBonifBala()/**Asigna el tiempo a la bonificacion de ATAQUE*/
     {
       WarWorld mundo = (WarWorld) getWorld(); 
         
@@ -185,7 +190,7 @@ public class Reloj extends Actor
        }
     }
     
-    public void tiempoBonifEsc()
+    public void tiempoBonifEsc()/**Asigna el tiempo a la bonificacion de ESCUDO*/
     {
       WarWorld mundo = (WarWorld) getWorld(); 
         
@@ -212,7 +217,7 @@ public class Reloj extends Actor
        }
     }
     
-    public void agregaBonif()
+    public void agregaBonif()/**Agrega el objeto de la bonificacion a el juego*/
     {
      WarWorld mundo = (WarWorld) getWorld(); 
            

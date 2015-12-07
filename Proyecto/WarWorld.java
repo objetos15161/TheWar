@@ -181,7 +181,8 @@ public class WarWorld extends World
       
     }
     
-    public void agregaBalaJ()
+    public void agregaBalaJ()/**verifica si se esta presionando la tecla espacio y se crea una BalaJug
+                                en las coordenadas actuales en donde esta el tanque*/
     {
      if(Greenfoot.isKeyDown("space"))
      {
@@ -192,7 +193,7 @@ public class WarWorld extends World
      }
     }
     
-    public void aumentaEliminados()
+    public void aumentaEliminados()/**Incrementa el numero de eliminados y verifica el numero de eliminados */
     {
       eliminados++;  
       //System.out.println("Eliminados="+eliminados);
@@ -215,7 +216,7 @@ public class WarWorld extends World
       }  
     }
     
-    public void addImaLv2()
+    public void addImaLv2()/**Agrega los enemigos del nivel 2 */
     {
      addObject(tanque, 346, 435);
      
@@ -226,7 +227,8 @@ public class WarWorld extends World
      addObject (new Muro(), 150, 115);  
     }
     
-    public void addBalaEnL2()
+    public void addBalaEnL2()/**Agrega las  balas de los enemigos  del nivel 2 */
+    
     {
       //Greenfoot.playSound( "Gun.wav");  
       
@@ -241,7 +243,7 @@ public class WarWorld extends World
      } 
     }
     
-    public void addImaLvL3()
+    public void addImaLvL3()/**Agrega los enemigos del nivel 3 */
     {
       lanzacohetes1 = new LanzaCohetes();
       lanzacohetes2 = new LanzaCohetes();
@@ -260,7 +262,7 @@ public class WarWorld extends World
      
     }
     
-    public void addBalaEnTor()
+    public void addBalaEnTor()/**Agrega la bala de la torre en nivel 3 */
     {
 
        muTorre.play();
@@ -287,7 +289,7 @@ public class WarWorld extends World
 
     }
     
-    public void addBalaEnL3()
+    public void addBalaEnL3()/**Agrega la bala del lanzacohetes en nivel 3 */
     {
       //Greenfoot.playSound( "Gun.wav");  
 
@@ -300,9 +302,11 @@ public class WarWorld extends World
       { 
        addObject (new BalaEnemy(), 475, 140);
       }
+
     }
     
-    public void ganaste()
+    public void ganaste()/**verifica si aun hay enemigos y si ya no hay aparece la imagen de GANASTE
+                            y el juego termian y regresa al MENU*/
     {
      if(lanzacohetes1.vida<=0 && lanzacohetes2.vida<=0)   
      {
@@ -318,7 +322,7 @@ public class WarWorld extends World
      }
     }
     
-    public void addBon()
+    public void addBon()/**Agrega las bonificaciones */
     { 
       if(Greenfoot.getRandomNumber(820)<1)
       {  

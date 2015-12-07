@@ -11,8 +11,7 @@ public class BalaEnemy extends Municion
     
     
     /**
-     * Act - do whatever the BalaEnemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * La bala que representa al enemigo
      */
     public void act() 
     {

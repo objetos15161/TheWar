@@ -9,8 +9,7 @@ import greenfoot.*;
 public class Salir_Boton extends Boton
 {
     /**
-     * Act - do whatever the Salir_Boton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     *Representa el boton de SALIR del MENU 
      */
     public void act() 
     {
@@ -19,8 +18,8 @@ public class Salir_Boton extends Boton
     
     public void salir()
     {
-     if(Greenfoot.mousePressed(this))
-            {
+     if(Greenfoot.mousePressed(this))/**Cuando se hace click en la imagen el juego se detiene*/
+           {
                Greenfoot.stop();
             }   
     }

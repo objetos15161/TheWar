@@ -11,7 +11,7 @@ public class AYUDA extends World
    private Regresar_Boton regresar_boton;
    
     /**
-     * Constructor for objects of class AYUDA.
+     * Crea la imagen de las instrucciones  del juego
      * 
      */
     public AYUDA()
@@ -22,18 +22,7 @@ public class AYUDA extends World
         regresar_boton = new Regresar_Boton();
         addObject(regresar_boton,72,40);  
         
-        //act();
+        
     }   
-    /*
-    public void act()
-    {
-       if(Greenfoot.getMouseInfo()!=null)
-        {    
-         if(Greenfoot.mousePressed(regresar_boton))
-         {
-          Greenfoot.setWorld(new MENU());
-         }
-        }
-    }
-    */
+  
 }

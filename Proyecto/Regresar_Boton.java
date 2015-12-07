@@ -9,8 +9,7 @@ import greenfoot.*;
 public class Regresar_Boton extends Boton
 {
     /**
-     * Act - do whatever the Regresar_Boton wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     Representa el boton de REGRESAR de la AYUDA
      */
     public void act() 
     {
@@ -19,7 +18,7 @@ public class Regresar_Boton extends Boton
     
     public void regresar()
     {
-        if(Greenfoot.mousePressed(this))
+        if(Greenfoot.mousePressed(this))/**Cuando se hace click en la imagen se vuelve al MENU*/
          {
           Greenfoot.setWorld(new MENU());
          }

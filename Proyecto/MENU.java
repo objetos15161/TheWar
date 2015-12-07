@@ -2,10 +2,10 @@ import greenfoot.*;
 import greenfoot.GreenfootSound.*;
 
 /**
- * Write a description of class MENU here.
- * 
+ * Es la imagen principal del juego donde acorde al boton seleccionado se hace una determinada
+ * accion dentro del juego
  * @author (your name) 
- * @version (a version number or a date)
+ * @version (1.1)
  */
 public class MENU extends World
 {
@@ -16,8 +16,7 @@ public class MENU extends World
 
     
     /**
-     * Constructor for objects of class MENU.
-     * 
+     * Crea el MENU del juego con sus respectivos botones
      */
     public MENU()
     {    
@@ -30,16 +29,15 @@ public class MENU extends World
    
       
     }
-    public void crearBotones()
+    public void crearBotones()/**Crea los botones del juego asignandoles una posición*/
     {
        boton_jugar = new Boton_Jugar();
        salir_boton = new Salir_Boton();
-       //record_boton =new Record_Boton();
+
        boton_ayuda = new Boton_Ayuda();
        
        this.addObject(boton_jugar, 343, 156);
        this.addObject(salir_boton, 343, 404);
-       //this.addObject(record_boton, 590, 290);
        this.addObject(boton_ayuda, 343, 294);
    
     }

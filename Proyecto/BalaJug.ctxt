@@ -7,6 +7,4 @@ comment1.target=void\ mueve()
 comment1.text=\ protected\ void\ addedToWorld(World\ mundo)\n\ \ \ \ {\n\ \ \ \ \ puntos\ \=\ new\ Counter("Puntos\:\ ");\n\ \ \ \ \ mundo.addObject(puntos,\ 650,\ 10);\n}
 comment2.params=
 comment2.target=void\ checa()
-comment3.params=
-comment3.target=Muro\ dimeMuro()
-numComments=4
+numComments=3
