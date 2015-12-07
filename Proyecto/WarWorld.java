@@ -26,7 +26,7 @@ public class WarWorld extends World
     private Reloj reloj;
     private GreenfootSound muLcohete;
     private GreenfootSound muTorre; 
-    //private GreenfootSound muJuego; 
+    private GreenfootSound muWin; 
     int nEnemigos=0;
     int nEnemigosNv2=0;
     int eliminados=0;
@@ -44,7 +44,7 @@ public class WarWorld extends World
         Greenfoot.setWorld(new MENU());
 
         
-        //muJuego= new GreenfootSound("musica de guerra.wav");
+        muWin= new GreenfootSound("aplausos.mp3");
         muLcohete= new GreenfootSound("Gun.wav");
         muTorre= new GreenfootSound( "Bomba.mp3");
         puntos = new Counter("Puntos: ");
@@ -314,8 +314,10 @@ public class WarWorld extends World
       {
        muLcohete.stop();
        muTorre.stop();
+       muWin.play();
        Greenfoot.setWorld(new Ganaste());   
        Greenfoot.delay(300);
+       muWin.stop();
        Greenfoot.setWorld(new MENU()); 
        //Greenfoot.stop();       
       }
