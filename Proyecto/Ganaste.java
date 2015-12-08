@@ -1,18 +1,15 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Ganaste here.
+ * Aparece la Imagen de ‘Ganaste’  en el juego
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
+
 public class Ganaste extends World
 {
-
-    /**
-     * Constructor for objects of class Ganaste.
-     * 
-     */
+  
     public Ganaste()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.

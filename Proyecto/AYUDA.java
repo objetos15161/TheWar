@@ -1,19 +1,16 @@
 import greenfoot.*;
 
 /**
- * Write a description of class AYUDA here.
+ * Crea la imagen de las instrucciones  del juego
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben , Quistian Martinez Alberto
+ * @version 2015.11.7
  */
 public class AYUDA extends World
 {
    private Regresar_Boton regresar_boton;
    
-    /**
-     * Crea la imagen de las instrucciones  del juego
-     * 
-     */
+  
     public AYUDA()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.

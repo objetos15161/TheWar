@@ -1,25 +1,24 @@
 import greenfoot.*;
 
+
 /**
- * Write a description of class LanzaCohetes here.
+ * Representa a un enemigo del juego 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
+
 public class LanzaCohetes extends Soldado
 {
-    /**
-     * Act - do whatever the LanzaCohetes wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */    
+   
     public int vida=200;//La vida que tiene el LanzaCohete
 
     public void act() 
     {
-      disminuyeVida();//El contador de las vidas se actualiza cuando este es tocado por la balaJug
+      disminuyeVida();
     }
     
-    public void disminuyeVida()
+    public void disminuyeVida()/**El contador de las vidas se actualiza cuando este es 					tocado por la balaJug*/
     {
         WarWorld mundo = (WarWorld) getWorld(); 
         

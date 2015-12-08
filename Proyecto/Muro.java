@@ -1,26 +1,25 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Muro here.
+ * Representa una protección para el enemigo en el juego
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
+
 public class Muro extends Actor
 {
     private int vida=200;
     
-    /**
-     * Act - do whatever the Muro wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+  
     
     public void act() 
     {
       checa();
     }   
     
-    public void checa()
+    public void checa()/**  verifica si aun tiene vida el muro */
+
     {
       WarWorld mundo = (WarWorld) getWorld(); 
       
@@ -28,7 +27,7 @@ public class Muro extends Actor
         
         if(t.daño==1)/**verifica si aun tiene la bonificacion el tanque */
         {
-          if(vida<=200 && vida>0)/**verifica si aun tiene vida el muro */
+          if(vida<=200 && vida>0)
           {  
             if(this.isTouching(BalaJug.class))/**cuando esta tocando la BalaJug la bala se elimina */
             {

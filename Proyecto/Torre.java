@@ -1,17 +1,17 @@
 import greenfoot.*;
 
+
 /**
- * Write a description of class Torre here.
+ * Representa un enemigo del juego en el nivel 3  
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
+
+
 public class Torre extends Soldado
 {
-    /**
-     * Act - do whatever the Torre wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     
     public int vida=300;//La vida que tiene la Torre
  
@@ -20,7 +20,8 @@ public class Torre extends Soldado
      disminuyeVida();
     } 
     
-    public void disminuyeVida()
+    public void disminuyeVida()/**calcula la vida de la torre cuando esta es tocada por la 				  bala del jugador  */
+
     {
      WarWorld mundo = (WarWorld) getWorld(); 
         

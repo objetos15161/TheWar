@@ -1,21 +1,26 @@
 
 import greenfoot.*;
 
+/**
+     * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+     * @version 2015.11.7
+     *
+     * Es donde hace que que se mueva el artillero y elimina el artillero 
+     * cuando es tocado por la balaJugador
+     */
+
 public class Artillero extends Soldado
 {
-    /**
-     * Act - do whatever the Artillero wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     
     
     public void act() 
     {
-       mueve();//es llamada este metodo desde SOLDADO y Hace que se mueva el artiller0
-       elimina(); //Elimina el artillero cuando es tocado por la balaJugador
+       mueve();
+       elimina();
     }    
     
-     public void elimina()
+     public void elimina()/** Cuan el Artillero es tocado por la balaJugador esta se                   			      elimina e incrementa el contador de los eliminados  */
     {
      WarWorld mundo = (WarWorld) getWorld();
      

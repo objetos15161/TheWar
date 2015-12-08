@@ -1,26 +1,24 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Boton_Jugar here.
+ * Representa el boton de JUGAR del MENU con este da inicio al juego
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
+
 public class Boton_Jugar extends Boton
 {
     private GreenfootSound muJuego; 
-    /**
-    Representa el boton de JUGAR del MENU */
+  
     public void act() 
     {
        Jugar();
-       muJuego= new GreenfootSound("musica de guerra.wav");/**Se reproduce el sonido del juego*/
-    }    
+       muJuego= new GreenfootSound("musica de guerra.wav");    }    
     
-    public void Jugar()
+    public void Jugar()/**Cuando se hace click en la imagen el juego inicia*/
     {
-        if(Greenfoot.mousePressed(this))/**Cuando se hace click en la imagen el juego inicia*/
-            {
+        if(Greenfoot.mousePressed(this))            {
                 Greenfoot.setWorld(new WarWorld());
                 muJuego.play();
             }

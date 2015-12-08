@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Boton_Ayuda here.
+ * Representa el boton de AYUDA del MENU  donde te aparecen las instrucciones del juego
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
 public class Boton_Ayuda extends Boton
 {
@@ -16,10 +16,10 @@ public class Boton_Ayuda extends Boton
         ayuda();
     }    
     
-    public void ayuda()
+    public void ayuda()/**Cuando se hace click en la imagen aparece una imagen
+                          con las instrucciones del juego*/
     {
-         if(Greenfoot.mousePressed(this))/**Cuando se hace click en la imagen aparece una imagen
-                                            con las intrucciones del juego*/
+         if(Greenfoot.mousePressed(this))
             {
               Greenfoot.setWorld(new AYUDA());
             }

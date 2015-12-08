@@ -1,12 +1,15 @@
 import greenfoot.*;
 import greenfoot.GreenfootSound.*;
 
+
 /**
- * Es la imagen principal del juego donde acorde al boton seleccionado se hace una determinada
- * accion dentro del juego
- * @author (your name) 
- * @version (1.1)
+ * Es la imagen principal del juego donde acorde al botón seleccionado se hace una 	 
+ * acción determinada dentro del juego	
+
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
+
 public class MENU extends World
 {
     private Boton_Jugar boton_jugar;
