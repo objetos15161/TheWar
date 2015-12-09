@@ -9,7 +9,6 @@ import greenfoot.*;
 
 public class Granadero extends Soldado
 {
-   
     public int vida=200;//La vida que tiene el LanzaCohete
 
     public void act() 
@@ -17,7 +16,7 @@ public class Granadero extends Soldado
       disminuyeVida();
     }
     
-    public void disminuyeVida()/**El contador de las vidas se actualiza cuando este es 					tocado por la balaJug*/
+    public void disminuyeVida()/**El contador de las vidas se actualiza cuando este es tocado por la balaJug*/
     {
         WarWorld mundo = (WarWorld) getWorld(); 
         

@@ -24,9 +24,4 @@ public class BotonJugar extends Boton
             muJuego.play();
         }
     }
-    
-    public void detenMusica()
-    {
-     muJuego.stop();   
-    }
 }

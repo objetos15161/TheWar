@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class InfanteriaPesada here.
+ * Crea la clase de los enemigos Infanteria Pesada con sus caracteristicas
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
 public class InfanteriaPesada extends Soldado
 {
@@ -20,6 +20,7 @@ public class InfanteriaPesada extends Soldado
         disminuyeVida();//El contador de las vidas se actualiza cuando este es tocado por la balaJug
     }
 
+    /**Verifica si el Enemigo fue tocado por una bala de Tanque y le resta vida*/
     public void disminuyeVida()
     {
         WarWorld mundo = (WarWorld) getWorld(); 

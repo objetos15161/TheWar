@@ -10,9 +10,7 @@ import greenfoot.*;
 public class Muro extends Actor
 {
     private int vida=200;
-    
   
-    
     public void act() 
     {
       checa();

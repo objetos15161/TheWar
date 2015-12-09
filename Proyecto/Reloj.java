@@ -4,8 +4,8 @@ import java.util.List;
 /**
  * Con el reloj dependenden varias clases como las bonificaciones que duran cierto tiempo
  * tambien las balas que aparecen cada determinando tiempo 
- * @author (your name) 
- * @version (1.5)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
 
 public class Reloj extends Actor

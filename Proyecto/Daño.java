@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Daño here.
+ * Crea la clase de la bonificacion "Daño"
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
 public class Daño extends Bonificacion
 {

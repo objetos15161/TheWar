@@ -11,9 +11,6 @@ import greenfoot.*;
 
 public class Artillero extends Soldado
 {
-
-    
-    
     public void act() 
     {
        mueve();

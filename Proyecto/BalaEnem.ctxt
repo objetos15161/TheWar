@@ -1,5 +1,11 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ BalaEnem\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=1
+comment0.text=\r\n\ La\ bala\ que\ representa\ al\ enemigo\r\n
+comment1.params=
+comment1.target=void\ mueve()
+comment1.text=Hace\ que\ la\ bala\ se\ mueve\ hacia\ abajo\ donde\ esta\ el\ tanque
+comment2.params=
+comment2.target=void\ Check()
+comment2.text=Verifica\ si\ esta\ tocando\ la\ coordenada\ mas\ alta\ en\ Y\ del\ MUNDO\ esta\ se\ elimina
+numComments=3

@@ -11,8 +11,6 @@ import greenfoot.*;
 
 public class Torre extends Soldado
 {
-
-    
     public int vida=300;//La vida que tiene la Torre
  
     public void act() 
@@ -20,7 +18,7 @@ public class Torre extends Soldado
      disminuyeVida();
     } 
     
-    public void disminuyeVida()/**calcula la vida de la torre cuando esta es tocada por la 				  bala del jugador  */
+    public void disminuyeVida()/**calcula la vida de la torre cuando esta es tocada por la bala del jugador  */
 
     {
      WarWorld mundo = (WarWorld) getWorld(); 

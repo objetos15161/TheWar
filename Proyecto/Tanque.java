@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Tanque here.
+ * Crea la clase Tanque con sus caracteristicas
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
 public class Tanque extends Actor
 {
@@ -33,6 +33,7 @@ public class Tanque extends Actor
       veifBoni();
     }    
     
+    /** Inicializa objetos del tanque*/
     public Tanque(int numVidas)
     { 
       vidas = new Counter ("Vidas: ");
@@ -40,12 +41,14 @@ public class Tanque extends Actor
       message = new Message("¡¡Game Over... Perdiste!!");
 
     }
-    
+   
+    /** Agrega el contador vidas al mundo*/
     protected void addedToWorld(World mundo)
     {
       mundo.addObject(vidas, 50, 10);
     }
     
+    /** Mueve el Tanque*/
     public void mueve()
     {
       if(Greenfoot.isKeyDown("right"))
@@ -59,6 +62,7 @@ public class Tanque extends Actor
       }
     }
       
+    /** Disminuye las vidas del Tanque*/
     public void disminuyeVidas()
     {
         WarWorld mundo = (WarWorld) getWorld(); 
@@ -116,6 +120,7 @@ public class Tanque extends Actor
         }
     }
     
+    /** Verifica si el Tanque esta tocando alguna bonificacion y la activa*/
     public int veifBoni()
     {      
         WarWorld mundo = (WarWorld) getWorld(); 

@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class BalaEnem here.
+ * Crea la Clase de las Balas de los Enemigos
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
 public class BalaEnem extends Municion
 {
@@ -17,13 +17,15 @@ public class BalaEnem extends Municion
 
         Check();//Verifica si esta tocando la coordenada mas alta en Y del MUNDO esta se elimina 
     }    
-
+    
+    /**Hace que la bala se mueve hacia abajo donde esta el tanque*/
     public void mueve()
     {
         setRotation(90); //270
         move(2);
     }
-
+    
+    /**Verifica si esta tocando la coordenada mas alta en Y del MUNDO esta se elimina */
     public void Check ()
     {
         WarWorld mundo = (WarWorld) getWorld();

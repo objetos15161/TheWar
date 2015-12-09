@@ -3,4 +3,5 @@ comment0.params=
 comment0.target=void\ act()
 comment1.params=
 comment1.target=void\ disminuyeVida()
+comment1.text=Verifica\ si\ el\ Enemigo\ fue\ tocado\ por\ una\ bala\ de\ Tanque\ y\ le\ resta\ vida
 numComments=2

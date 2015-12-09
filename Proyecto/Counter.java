@@ -28,8 +28,8 @@ import java.awt.Color;
  * }
  * </pre>
  * 
- * @author Neil Brown and Michael Kölling 
- * @version 1.0
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
 public class Counter extends Actor
 {

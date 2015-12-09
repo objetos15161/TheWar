@@ -2,10 +2,10 @@ import greenfoot.*;
 import java.util.List;
 
 /**
- * Write a description of class WarWorld here.
+ * Crea el los escenarios del juego de acuerdo al nivel 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Villegas Puente Ruben,Quistian Martinez Alberto 
+ * @version 2015.11.7
  */
 public class WarWorld extends World
 {
@@ -63,11 +63,13 @@ public class WarWorld extends World
      addBon();
     }
     
+    /** Actualiza los puntos del jugador*/
     public void actualizaPuntos()
     {
      puntos.setValue(puntos.getValue() + 2);   
     }
     
+    /** Inicia los objetos del mundo*/
     private void prepare()
     {
        addObject(tanque, 346, 435);
@@ -80,6 +82,7 @@ public class WarWorld extends World
        addObject(nivel, 440, 10);     
     }
     
+    /** Agrega los enemigos Artilleros en una coordenada en x al azar y en un tiempo al azar*/
     public void agregaEnemigo()
     {
       if(nivel.getValue() == 1)
@@ -107,32 +110,32 @@ public class WarWorld extends World
              }
             }
     }
-
+    
+    /** Regresa la clase Tanque*/
     public Tanque dimeTanque()
     {
       return tanque;  
     }
     
+    /** Regresa la clase Artillero*/
     public Artillero dimeArtillero()
     {
       return artillero;  
     }
     
+    /** Regresa la clase Granadero*/
     public Granadero dimeLanzaCohetes()
     {
       return granadero;  
     }   
     
+    /** Regresa la clase Reloj*/
     public Reloj dimeReloj()
     {
      return reloj;   
     }
-    
-    public BotonJugar dimeBotonJug()
-    {
-     return botonJug;
-    }
-    
+   
+    /** Crea los niveles del juego */
     public void cambiaNivel()
     { 
       nivel.setValue(nivel.getValue() + 1);     
@@ -194,7 +197,7 @@ public class WarWorld extends World
       
     }
     
-    public void agregaBalaJ()/**verifica si se esta presionando la tecla espacio y se crea una BalaJug
+    public void agregaBalaJ() /**verifica si se esta presionando la tecla espacio y se crea una BalaJug
                                 en las coordenadas actuales en donde esta el tanque*/
     {
      if(Greenfoot.isKeyDown("space"))

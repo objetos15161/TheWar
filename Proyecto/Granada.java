@@ -18,12 +18,14 @@ public class Granada extends Municion
         Check();//Verifica si esta tocando la coordenada mas alta en Y del MUNDO esta se elimina 
     }    
 
+    /**Hace que la bala se mueve hacia abajo donde esta el tanque*/
     public void mueve()
     {
         setRotation(90); //270
         move(2);
     }
     
+    /**Verifica si esta tocando la coordenada mas alta en Y del MUNDO esta se elimina */
     public void Check ()/**Verifica si esta tocando el borde de la coordenada maxima en Y */
     {
         WarWorld mundo = (WarWorld) getWorld();
