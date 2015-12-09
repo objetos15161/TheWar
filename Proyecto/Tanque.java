@@ -15,8 +15,10 @@ public class Tanque extends Actor
    private int Dan=0;
    public int daño=0;
    public int escudoActivo=0;
- 
-    
+   
+   private GreenfootSound muLcohete;
+   private GreenfootSound muTorre;
+   
    private Message message = null;
     
     /**
@@ -32,7 +34,7 @@ public class Tanque extends Actor
     }    
     
     public Tanque(int numVidas)
-    {
+    { 
       vidas = new Counter ("Vidas: ");
       vidas.setValue(numVidas);   
       message = new Message("¡¡Game Over... Perdiste!!");
@@ -62,18 +64,29 @@ public class Tanque extends Actor
         WarWorld mundo = (WarWorld) getWorld(); 
         
         Reloj r = mundo.dimeReloj();
+        //BotonJugar BJ = mundo.dimeBotonJug();
         
         if(escudoActivo==0)
         {
          if(vida<=300 && vida>0 && Esc==0)
          {  
-          if(isTouching(BalaEnemy.class))
+          if(isTouching(Granada.class))
            {
-            removeTouching(BalaEnemy.class);
+            removeTouching(Granada.class);
             System.out.println(vida);
             vida=vida-100;
             setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
-           }
+           } 
+            else
+            {
+               if(isTouching(BalaEnem.class))
+               {
+                removeTouching(BalaEnem.class);
+                System.out.println(vida);
+                vida=vida-100;
+                setLocation(mundo.getWidth()/2, mundo.getHeight()-50);
+               }    
+            }
          }
         }
         
@@ -90,7 +103,10 @@ public class Tanque extends Actor
           {
            mundo.addObject(message,250,100);
            Greenfoot.delay(200);
-           Greenfoot.setWorld(new MENU());   
+           muLcohete.stop();
+           muTorre.stop();
+           //BJ.detenMusica();
+           Greenfoot.setWorld(new Menu());   
           }
            else
            {

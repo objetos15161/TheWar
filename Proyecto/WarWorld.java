@@ -1,4 +1,3 @@
-
 import greenfoot.*;
 import java.util.List;
 
@@ -12,13 +11,16 @@ public class WarWorld extends World
 {
     /** Crea un objeto de las clases*/
     private Tanque tanque = new Tanque(3);  
-    private Artillero artillero = new Artillero();   
-    private LanzaCohetes lanzacohetes;
-    private LanzaCohetes lanzacohetes1 = new LanzaCohetes();
-    private LanzaCohetes lanzacohetes2 = new LanzaCohetes();
+    private Artillero artillero = new Artillero(); 
+    private InfanteriaPesada infanteriaP1 = new InfanteriaPesada(); 
+    private InfanteriaPesada infanteriaP2 = new InfanteriaPesada(); 
+    private Granadero granadero;
+    private Granadero granadero1 = new Granadero();
+    private Granadero granadero2 = new Granadero();
     private Torre torre1 = new Torre();
     private Torre torre2 = new Torre();
     private Torre torre3 = new Torre();
+    private BotonJugar botonJug;
     
     public Counter nivel; /** Contador del nivel */
     private Counter puntos; /** Contador de puntos */
@@ -42,7 +44,7 @@ public class WarWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 500, 1); 
-        Greenfoot.setWorld(new MENU());
+        Greenfoot.setWorld(new Menu());
 
         
         muWin= new GreenfootSound("aplausos.mp3");
@@ -86,7 +88,7 @@ public class WarWorld extends World
         {  
           if(Greenfoot.getRandomNumber(400)<2)
           {
-            addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 80);
+            addObject (new Artillero(), Greenfoot.getRandomNumber(690)+10, 200);
             nEnemigos++;
           }
         }
@@ -116,14 +118,19 @@ public class WarWorld extends World
       return artillero;  
     }
     
-    public LanzaCohetes dimeLanzaCohetes()
+    public Granadero dimeLanzaCohetes()
     {
-      return lanzacohetes;  
+      return granadero;  
     }   
     
     public Reloj dimeReloj()
     {
      return reloj;   
+    }
+    
+    public BotonJugar dimeBotonJug()
+    {
+     return botonJug;
     }
     
     public void cambiaNivel()
@@ -133,6 +140,7 @@ public class WarWorld extends World
       if(nivel.getValue() == 1)
       {
        setBackground("descarga4.jpg");  
+       addImaLv1();
        addBon();    
       }
       
@@ -140,9 +148,13 @@ public class WarWorld extends World
       {
        List listaArtilleros = this.getObjects(Artillero.class); 
        List listaBalasJ = this.getObjects(BalaJug.class);
+       List listaInfanteriaP = this.getObjects(InfanteriaPesada.class);
+       List listaBalasE = this.getObjects(BalaEnem.class);
        
        this.removeObjects(listaArtilleros);
        this.removeObjects(listaBalasJ);
+       this.removeObjects(listaInfanteriaP);
+       this.removeObjects(listaBalasE);
        removeObject(tanque);
        
        setBackground("campodebatalla2.jpg");   
@@ -157,13 +169,13 @@ public class WarWorld extends World
        muLcohete.stop();   
        List listaArtilleros = this.getObjects(Artillero.class); 
        List listaBalasJ = this.getObjects(BalaJug.class);
-       List listaLanzaCohetes = this.getObjects(LanzaCohetes.class);
+       List listaGranaderos = this.getObjects(Granadero.class);
        List listaMuros = this.getObjects(Muro.class);
-       List listaBalasEnem = this.getObjects(BalaEnemy.class);
+       List listaBalasEnem = this.getObjects(Granada.class);
        
        this.removeObjects(listaArtilleros);
        this.removeObjects(listaBalasJ);
-       this.removeObjects(listaLanzaCohetes);
+       this.removeObjects(listaGranaderos);
        this.removeObjects(listaMuros);
        this.removeObjects(listaBalasEnem);
        removeObject(tanque);  
@@ -177,7 +189,7 @@ public class WarWorld extends World
       if(nivel.getValue() > 3)
       {
        nivel.setValue(3);   
-       Greenfoot.setWorld(new MENU());   
+       Greenfoot.setWorld(new Menu());   
       }
       
     }
@@ -217,15 +229,37 @@ public class WarWorld extends World
       }  
     }
     
+    public void addImaLv1()
+    {
+     addObject(infanteriaP1,180,80 ); 
+     addObject(infanteriaP2,500,80 ); 
+    }
+    
     public void addImaLv2()/**Agrega los enemigos del nivel 2 */
     {
      addObject(tanque, 346, 435);
      
-     addObject (lanzacohetes1, 550, 90);
+     addObject (granadero1, 550, 90);
      addObject (new Muro(), 550, 115);
      
-     addObject (lanzacohetes2, 150, 90);
+     addObject (granadero2, 150, 90);
      addObject (new Muro(), 150, 115);  
+    }
+    
+    public void addBalaEnL1()/**Agrega las  balas de los enemigos  del nivel 1 */
+    
+    {
+      //Greenfoot.playSound( "Gun.wav");  
+      
+     if(infanteriaP1.vida>0)
+     {
+      addObject (new BalaEnem(), 180, 90 );   
+     } 
+     muLcohete.play();
+     if(infanteriaP2.vida>0)
+     {
+      addObject (new BalaEnem(), 500, 90);   
+     } 
     }
     
     public void addBalaEnL2()/**Agrega las  balas de los enemigos  del nivel 2 */
@@ -233,21 +267,21 @@ public class WarWorld extends World
     {
       //Greenfoot.playSound( "Gun.wav");  
       
-     if(lanzacohetes1.vida>0)
+     if(granadero1.vida>0)
      {
-      addObject (new BalaEnemy(), 537, 55);   
+      addObject (new Granada(), 537, 55);   
      } 
      muLcohete.play();
-     if(lanzacohetes2.vida>0)
+     if(granadero2.vida>0)
      {
-      addObject (new BalaEnemy(), 137, 55);   
+      addObject (new Granada(), 137, 55);   
      } 
     }
     
     public void addImaLvL3()/**Agrega los enemigos del nivel 3 */
     {
-      lanzacohetes1 = new LanzaCohetes();
-      lanzacohetes2 = new LanzaCohetes();
+      granadero1 = new Granadero();
+      granadero2 = new Granadero();
       
       addObject(tanque, 346, 435);
       
@@ -255,8 +289,8 @@ public class WarWorld extends World
       addObject (torre2, 355, 87);
       addObject (torre3, 565, 87);
 
-      addObject (lanzacohetes1, 230, 170);
-      addObject (lanzacohetes2, 480, 170);
+      addObject (granadero1, 230, 170);
+      addObject (granadero2, 480, 170);
        
       addObject (new Muro(), 230, 199);
       addObject (new Muro(), 480, 199);
@@ -269,37 +303,35 @@ public class WarWorld extends World
        
       if(torre1.vida>0)
       {  
-       addObject (new BalaEnemy(), 122, 55);
-       addObject (new BalaEnemy(), 168, 55);
+       addObject (new Granada(), 122, 55);
+       addObject (new Granada(), 168, 55);
 
       }
 
       if(torre2.vida>0)
       {  
-       addObject (new BalaEnemy(), 360, 55);
+       addObject (new Granada(), 360, 55);
 
       }
 
       if(torre3.vida>0)
       {  
-       addObject (new BalaEnemy(), 545, 55);
-       addObject (new BalaEnemy(), 588, 55);
+       addObject (new Granada(), 545, 55);
+       addObject (new Granada(), 588, 55);
 
       }
-     
-
     }
     
     public void addBalaEnL3()/**Agrega la bala del lanzacohetes en nivel 3 */
     {
-      if(lanzacohetes1.vida>0)
+      if(granadero1.vida>0)
       { 
-       addObject (new BalaEnemy(), 225, 140);
+       addObject (new Granada(), 225, 140);
       }
       muLcohete.play();
-      if(lanzacohetes2.vida>0)
+      if(granadero2.vida>0)
       { 
-       addObject (new BalaEnemy(), 475, 140);
+       addObject (new Granada(), 475, 140);
       }
 
     }
@@ -307,7 +339,7 @@ public class WarWorld extends World
     public void ganaste()/**verifica si aun hay enemigos y si ya no hay aparece la imagen de GANASTE
                             y el juego termian y regresa al MENU*/
     {
-     if(lanzacohetes1.vida<=0 && lanzacohetes2.vida<=0)   
+     if(granadero1.vida<=0 && granadero2.vida<=0)   
      {
       if(torre1.vida<=0 && torre2.vida<=0 && torre3.vida<=0)   
       {
@@ -317,7 +349,7 @@ public class WarWorld extends World
        Greenfoot.setWorld(new Ganaste());   
        Greenfoot.delay(300);
        muWin.stop();
-       Greenfoot.setWorld(new MENU());       
+       Greenfoot.setWorld(new Menu());       
       }
      }
     }
