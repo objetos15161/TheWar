@@ -13,7 +13,7 @@ import greenfoot.GreenfootSound.*;
 public class Menu extends World
 {
     private BotonJugar botonJugar;
-    private BotonCreditos salirBoton;
+    private BotonCreditos botonCreditos;
     private BotonAyuda botonAyuda;
 
     /**
@@ -31,13 +31,12 @@ public class Menu extends World
     public void crearBotones()/**Crea los botones del juego asignandoles una posición*/
     {
        botonJugar = new BotonJugar();
-       salirBoton = new BotonCreditos();
-
+       botonCreditos = new BotonCreditos();
        botonAyuda = new BotonAyuda();
        
        this.addObject(botonJugar, 343, 156); /** Agrega el boton de jugar */
-       this.addObject(salirBoton, 343, 404);
-       this.addObject(botonAyuda, 343, 294);
+       this.addObject(botonCreditos, 343, 404);/** Agrega el boton de Creditos*/
+       this.addObject(botonAyuda, 343, 294); /** Agrega el boton de Ayuda*/
    
     }
 }

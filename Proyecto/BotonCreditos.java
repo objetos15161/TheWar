@@ -18,9 +18,9 @@ public class BotonCreditos extends Boton
     
     public void salir()
     {
-     if(Greenfoot.mousePressed(this))/**Cuando se hace click en la imagen el juego se detiene*/
+     if(Greenfoot.mousePressed(this))/**Cuando se hace click en la imagen aparece una imagen con los Creditose*/
      {
-      Greenfoot.stop();
+      Greenfoot.setWorld(new Creditos());
      }   
     }
 }
